@@ -87,6 +87,58 @@ late-pass rules for others**, producing hybrids that match neither.
 | 7 | Eyebrow tracking | `letter-spacing: 0.13em` | The migration dictionary wrote `tracking-[.1em]`; components use `tracking-[.13em]`. Both exist in the codebase. | Medium |
 | 8 | `h2` size | `clamp(42px, 5vw, 78px)` | `clamp(42px,5vw,74px)` everywhere | Low |
 
+### 1.3a Cascade bugs found during Step 2
+
+Three defects found by inspecting the **built** CSS, not the source. None were
+visible in the original analysis, and all three are silent — no error, no
+warning, just rules that never apply.
+
+**A. 177 dead `[&_.eyebrow]:` variants.** They generate selectors ending in
+`.eyebrow`, but **no element in the codebase ever carries that class**. All 177
+match nothing. Verified: `grep className="...eyebrow"` returns zero hits outside
+the variants themselves.
+
+**B. The `:not(.eyebrow)` guard is inverted in practice.** 24 parents carry
+rules like `[&_p:not(.eyebrow)]:text-[15px]` to style body copy *while excluding
+the eyebrow*. Because no element has `.eyebrow`, `:not(.eyebrow)` matches the
+eyebrow too — and it wins, because the generated selector
+
+```
+.\[\&_p\:not\(\.eyebrow\)\]\:text-\[15px\] p:not(.eyebrow)   /* (0,2,1) */
+```
+
+outranks the eyebrow's own `.text-\[11px\]` **(0,1,0)**. Confirmed in the served
+HTML: the Mission eyebrow is a child of an `<article>` carrying
+`[&_p:not(.eyebrow)]:text-[15px]` and `:text-[#625b63]`, and has no `eyebrow`
+class. **It renders 15px grey instead of 11px brand purple.** Same on
+`/about`, `involvement-application`, and the home CTA band (yellow → white).
+
+Adopting `.eyebrow` in Step 3 fixes this by giving the element the class the
+selector was always looking for.
+
+**C. Unlayered rules silently beat every Tailwind utility.** `globals.css` puts
+`.font-display` and `h3` **outside any `@layer`**. Unlayered declarations win
+over layered ones *regardless of specificity*, and all Tailwind utilities live
+in `@layer utilities`. So `.font-display { line-height: .94 }` overrides every
+`leading-*` on the same element:
+
+| Dead utility | Count |
+| --- | --- |
+| `leading-[.98]` | 42 |
+| `leading-none` | 28 |
+| `leading-[1.1]` | 13 |
+| `leading-[1.02]` / `[1.6]` / `[1.3]` / `[1.05]` | 6 |
+
+**89 line-height utilities do nothing.** Every heading renders at `0.94`
+whatever the markup asks for — including one requesting `1.6`. This is a large
+part of why headings read as cramped rather than premium, and it is why the
+`.display-*` classes bundle family, size, leading and tracking together: there
+is then nothing left for a stray utility to lose a cascade fight against.
+
+The `.font-display` hack is deliberately left in place through Step 2 to keep
+that step inert. Step 3 removes it per-file as each component swaps
+`font-display … leading-[…]` for a `.display-*` class.
+
 ### 1.4 Responsive gaps
 
 - **Dropped breakpoints.** The reference has `@media (max-width: 560px)` (event

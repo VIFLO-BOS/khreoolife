@@ -207,7 +207,229 @@ img {
     outline-offset: 3px;
 }
 
-/* Premium typography — match reference .display class */
+/* ============================================================
+   STEP 2 — COMPONENT CLASSES
+
+   These replace the utility blobs the migration inlined. They live in
+   @layer components, which Tailwind declares BEFORE @layer utilities,
+   so any utility in the markup still overrides them:
+
+       <p class="eyebrow text-yellow">   -> yellow wins over the brand
+                                            colour baked into .eyebrow
+
+   That is the whole point of the layer: a junior can reach for a
+   utility to vary one property without fighting the component class,
+   and without needing !important.
+   ============================================================ */
+@layer components {
+
+    /* --- Page container -------------------------------------------
+       Replaces 36 copies of the w-[min(var(--max-width),calc(...))]
+       blob. Gutters come from the Step 1 tokens.                    */
+    .container-page {
+        width: min(var(--max-width), calc(100% - var(--gutter)));
+        margin-inline: auto;
+    }
+
+    @media (max-width: 1050px) {
+        .container-page {
+            width: min(var(--max-width), calc(100% - var(--gutter-laptop)));
+        }
+    }
+
+    @media (max-width: 760px) {
+        .container-page {
+            width: calc(100% - var(--gutter-tablet));
+        }
+    }
+
+    @media (max-width: 400px) {
+        .container-page {
+            width: calc(100% - var(--gutter-phone));
+        }
+    }
+
+    /* --- Eyebrow --------------------------------------------------
+       Replaces 177 inlined copies. Tracking is .13em, per the
+       reference; the migration dictionary had written .1em.
+
+       Adopting this ALSO fixes a live bug. Several parents carry
+       [&_p:not(.eyebrow)]:text-[15px] to style body copy while
+       excluding the eyebrow -- but no element ever carried the
+       .eyebrow class, so :not(.eyebrow) matched the eyebrow too and,
+       at higher specificity, overrode its size and colour. Giving the
+       element the class it was always meant to have makes the
+       exclusion work.                                               */
+    .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 20px;
+        color: var(--brand);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: currentColor;
+    }
+
+    /* --- Display type ---------------------------------------------
+       Each class carries family, size, leading and tracking together,
+       so there is nothing left for a stray leading-* utility to lose
+       a cascade fight against. Sizes come from the Step 1 tokens.   */
+    .display-1 {
+        font-family: var(--display-font);
+        font-size: var(--type-display-1);
+        font-weight: 400;
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+    }
+
+    .display-2 {
+        font-family: var(--display-font);
+        font-size: var(--type-display-2);
+        font-weight: 400;
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+    }
+
+    .display-3 {
+        font-family: var(--display-font);
+        font-size: var(--type-display-3);
+        font-weight: 400;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+    }
+
+    .lede {
+        max-width: 720px;
+        color: #585159;
+        font-size: var(--type-lede);
+        line-height: 1.48;
+    }
+
+    /* --- Small labels ---------------------------------------------
+       Straight from the reference definitions.                      */
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+    }
+
+    .status {
+        display: inline-flex;
+        border-radius: 999px;
+        background: #ece8e4;
+        padding: 6px 9px;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+    }
+
+    .status-future {
+        background: #e8fbe4;
+        color: #28761e;
+    }
+
+    .sticker {
+        display: inline-block;
+        transform: rotate(-4deg);
+        border-radius: 4px;
+        background: var(--yellow);
+        padding: 5px 10px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+    }
+
+    /* --- Card -----------------------------------------------------
+       One hover contract for every card on the site. Today four
+       slightly different lifts and shadows are in use.              */
+    .card {
+        overflow: hidden;
+        border: 1px solid var(--ink);
+        border-radius: var(--radius);
+        background: var(--white);
+        transition:
+            transform var(--motion-lift) var(--motion-ease-brand),
+            box-shadow var(--motion-lift) var(--motion-ease-brand);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 42px rgb(18 17 19 / 10%);
+    }
+
+    .card-media {
+        position: relative;
+        overflow: hidden;
+        background: #ddd;
+    }
+
+    .card-media img {
+        transition: transform var(--motion-media) var(--motion-ease-brand);
+    }
+
+    .card:hover .card-media img {
+        transform: scale(1.025);
+    }
+
+    .card-body {
+        padding: 24px;
+    }
+
+    /* --- Section head ---------------------------------------------
+       The "eyebrow + heading on the left, blurb on the right"
+       pattern used on five pages.                                   */
+    .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 38px;
+    }
+
+    .section-head > :last-child {
+        max-width: 470px;
+    }
+
+    @media (max-width: 760px) {
+        .section-head {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: start;
+            gap: 24px;
+        }
+
+        .section-head > :last-child {
+            max-width: 100%;
+        }
+    }
+}
+
+/* Premium typography — match reference .display class.
+   NOTE: this rule is UNLAYERED, so it beats every layered Tailwind
+   utility regardless of specificity. That is why 89 leading-* classes
+   in the markup currently do nothing: any element with `font-display`
+   is forced to line-height .94.
+
+   It is deliberately left in place for now so Step 2 stays inert.
+   Step 3 removes it per-file as each component swaps
+   `font-display ... leading-[...]` for a .display-* class. */
 .font-display {
     letter-spacing: -0.055em;
     line-height: 0.94;
