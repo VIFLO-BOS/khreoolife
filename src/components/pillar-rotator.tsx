@@ -68,7 +68,7 @@ export function PillarRotator() {
                     }
                     className={
                       index === activeIndex
-                        ? "block h-full w-0 bg-brand animate-[pillar-progress-load_5.2s_linear_forwards]"
+                        ? "block h-full w-0 bg-brand anim-progress"
                         : "block h-full w-0 bg-brand"
                     }
                   />

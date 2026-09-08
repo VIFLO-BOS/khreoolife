@@ -112,7 +112,7 @@ export function BlogMagazine() {
           </Reveal>
         </div>
         <div className="flex w-full overflow-hidden border-y border-ink/10 py-5" aria-hidden="true">
-          <div className="flex animate-[mag-loop_30s_linear_infinite] items-center whitespace-nowrap [&>i]:mx-5 [&>i]:text-[10px] [&>i]:not-italic [&>i]:text-brand [&>span]:text-[14px] [&>span]:font-black [&>span]:tracking-[.05em] [&>span]:uppercase">
+          <div className="flex anim-marquee items-center whitespace-nowrap [&>i]:mx-5 [&>i]:text-[10px] [&>i]:not-italic [&>i]:text-brand [&>span]:text-[14px] [&>span]:font-black [&>span]:tracking-[.05em] [&>span]:uppercase">
             <span>Devotionals</span>
             <i>*</i>
             <span>Community Stories</span>

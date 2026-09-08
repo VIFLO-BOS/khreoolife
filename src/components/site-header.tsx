@@ -271,7 +271,7 @@ export function SiteHeader() {
     isScrolled || activeMenu || isMobileMenuOpen || pathname !== "/",
   );
     const headerClassName = [
-      "fixed z-[100] inset-x-0 top-0 isolate transition-[background,color,border-color,backdrop-filter] duration-(--duration-hover)",
+      "fixed z-[100] inset-x-0 top-0 isolate transition-nav",
       isLightNavigation
         ? "border-b border-ink/8 bg-cream/[.97] text-ink backdrop-blur-[18px]"
         : "text-white",
@@ -343,18 +343,18 @@ export function SiteHeader() {
 
         <Link
           href="/donate"
-          className="hidden items-center gap-1.5 text-white desktop:inline-flex [&>span]:grid [&>span]:h-[42px] [&>span]:place-items-center [&>span]:rounded-full [&>span]:px-5 [&>span]:text-[11px] [&>span]:font-black [&>span]:transition-colors [&>span]:duration-300 [&>svg]:box-content [&>svg]:grid [&>svg]:size-[42px] [&>svg]:place-items-center [&>svg]:rounded-full [&>svg]:transition-[background,color,transform] [&>svg]:duration-300 hover:[&>span]:bg-brand-dark hover:[&>span]:text-white hover:[&>svg]:rotate-45 hover:[&>svg]:bg-brand-dark hover:[&>svg]:text-white"
-          style={{
-            color: isLightNavigation ? "var(--white)" : "var(--ink)",
-          }}
+          className="nav-cta hidden desktop:inline-flex"
           aria-label="Donate now"
           onClick={closeNavigation}
         >
-          <span className={isLightNavigation ? "bg-brand" : "bg-yellow"}>
+          {/* Two pills: the label and a circular arrow. Over the hero the
+              nav is transparent, so they go yellow-on-ink; once the nav
+              turns light they go brand-on-white. */}
+          <span className={isLightNavigation ? "bg-brand text-white" : "bg-yellow text-ink"}>
             Donate Now
           </span>
           <ArrowRight
-            className={isLightNavigation ? "bg-brand" : "bg-yellow"}
+            className={isLightNavigation ? "bg-brand text-white" : "bg-yellow text-ink"}
             aria-hidden="true"
             size={17}
             strokeWidth={2.2}

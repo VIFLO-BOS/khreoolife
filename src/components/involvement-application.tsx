@@ -362,7 +362,7 @@ function Field({
   const id = `involvement-${name}`;
 
   return (
-    <div className="grid gap-2 [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_input]:min-h-[46px] [&_input]:w-full [&_input]:rounded-[7px] [&_input]:border [&_input]:border-line [&_input]:bg-paper [&_input]:px-[13px] [&_input]:py-3 [&_input]:text-[14px] [&_input]:text-ink [&_input:focus]:border-brand [&_input:focus]:outline-2 [&_input:focus]:outline-brand/24">
+    <div className="field-compact">
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
@@ -387,7 +387,7 @@ function SelectField({ full = false, label, name, options }: SelectFieldProps) {
 
   return (
     <div
-      className={`grid gap-2 [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_select]:min-h-[46px] [&_select]:w-full [&_select]:rounded-[7px] [&_select]:border [&_select]:border-line [&_select]:bg-paper [&_select]:px-[13px] [&_select]:py-3 [&_select]:text-[14px] [&_select]:text-ink [&_select:focus]:border-brand [&_select:focus]:outline-2 [&_select:focus]:outline-brand/24 ${full ? "col-[1/-1] tablet:col-auto" : ""}`}
+      className={`field-compact ${full ? "col-[1/-1] tablet:col-auto" : ""}`}
     >
       <label htmlFor={id}>{label}</label>
       <select id={id} name={name} defaultValue={options[0]}>
@@ -409,7 +409,7 @@ function TextAreaField({ label, name, placeholder }: TextAreaFieldProps) {
   const id = `involvement-${name}`;
 
   return (
-    <div className="col-[1/-1] grid gap-2 tablet:col-auto [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_textarea]:min-h-[120px] [&_textarea]:w-full [&_textarea]:resize-y [&_textarea]:rounded-[7px] [&_textarea]:border [&_textarea]:border-line [&_textarea]:bg-paper [&_textarea]:px-[13px] [&_textarea]:py-3 [&_textarea]:text-[14px] [&_textarea]:text-ink [&_textarea:focus]:border-brand [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-brand/24">
+    <div className="field-compact col-[1/-1] tablet:col-auto">
       <label htmlFor={id}>{label}</label>
       <textarea id={id} name={name} placeholder={placeholder} />
     </div>

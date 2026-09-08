@@ -76,7 +76,7 @@ export function HomePage() {
             </Reveal>
             <Reveal className="relative grid min-h-[610px] place-items-center tablet:min-h-[430px]">
               <div className="relative grid w-[min(520px,90%)] aspect-square place-items-center rounded-full border border-ink">
-                <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-float photo [&_img]:animate-[mission-photo-zoom_9s_ease-in-out_infinite_alternate]">
+                <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-float photo [&_img]:anim-photo-zoom">
                   <SiteImage
                     alt="Community members gathered together"
                     sizes="(max-width: 760px) 72vw, 400px"
@@ -84,7 +84,7 @@ export function HomePage() {
                   />
                 </div>
                 <span
-                  className="absolute top-1/2 left-1/2 grid size-[86px] m-[-43px] place-items-center rounded-brand border border-ink bg-yellow font-display text-[30px] animate-[mission-orbit_14s_linear_infinite] tablet:hidden"
+                  className="absolute top-1/2 left-1/2 grid size-[86px] m-[-43px] place-items-center rounded-brand border border-ink bg-yellow font-display text-[30px] anim-orbit tablet:hidden"
                   aria-hidden="true"
                 >
                   ee
@@ -136,7 +136,7 @@ export function HomePage() {
                   src={images.homeHeroSecond}
                 />
               </div>
-              <div className="absolute right-0 bottom-0 left-0 bg-[linear-gradient(0deg,rgb(10_7_11_/_88%),transparent)] px-[30px] pt-[95px] pb-7">
+              <div className="absolute right-0 bottom-0 left-0 scrim-deep px-[30px] pt-[95px] pb-7">
                 <span className="inline-flex rounded-full border border-current px-[9px] py-[6px] text-[9px] leading-none font-black tracking-[.08em] uppercase">
                   Community Development · Past
                 </span>

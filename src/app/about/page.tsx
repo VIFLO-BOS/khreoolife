@@ -24,7 +24,7 @@ export default function AboutPage() {
             src={images.community}
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(0_0_0_/_82%),transparent_45%)]" />
+        <div className="absolute inset-0 scrim-cinematic" />
         <Reveal className="container-page absolute right-0 bottom-0 left-0 z-1 pb-[120px] text-white [&_h1]:my-4 [&_h1]:max-w-[890px] [&_p:not(.eyebrow)]:max-w-[500px] [&_p:not(.eyebrow)]:text-[clamp(17px,1.5vw,20px)] [&_p:not(.eyebrow)]:text-white/80 tablet:pb-[90px]">
           <p className="eyebrow">Khreeolife - The Ordained Life</p>
           <h1 className="display-2">

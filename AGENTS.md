@@ -497,3 +497,106 @@ previously did not have at all**. The like-for-like comparison is 97,129 → 94,
 - **705 `[&_…]` variants remain.** The mechanical, high-volume patterns are gone;
   what is left is genuine per-component styling that would need case-by-case
   judgement rather than a scripted pass.
+
+---
+
+## 6. Step 8 — Class-name readability
+
+Raised after review: long chained arbitrary-value classes are unreadable for a
+junior developer. A class should say **what** an element is, not encode the
+maths of how it looks.
+
+Before:
+
+```jsx
+<div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(79_29_102_/_95%),rgb(79_29_102_/_40%)_65%),linear-gradient(0deg,rgb(79_29_102_/_80%),transparent_65%)]" />
+```
+
+After:
+
+```jsx
+<div className="absolute inset-0 scrim-brand" />
+```
+
+### 8.1 Scrims — done
+
+Seven inline gradient blobs (60–184 chars each) became one named family. A
+"scrim" is the dark wash over a photograph that keeps white text readable.
+
+| Class | Role |
+| --- | --- |
+| `scrim` | caption sits at the bottom |
+| `scrim-deep` | same, over a busier photo |
+| `scrim-photo` | project cards |
+| `scrim-cinematic` | full-bleed about-page header |
+| `scrim-side` | copy sits on the left |
+| `scrim-brand` | as `scrim-side`, in brand purple |
+| `scrim-hero` | homepage vignette (radial + linear) |
+
+- [x] 8.1 All 7 gradient blobs replaced. Zero `bg-[linear-gradient(...)]` left.
+
+### 8.2 Animations — done
+
+`animate-[home-scene-cycle_18s_ease-in-out_infinite]` and five siblings became
+`anim-scene`, `anim-scene-2/3`, `anim-photo-zoom`, `anim-orbit`, `anim-progress`,
+`anim-marquee`. Timing belongs next to the keyframes, not in the markup.
+
+- [x] 8.2 All 7 `animate-[…]` blobs replaced.
+
+### 8.3 Layout maths — done
+
+- [x] 8.3 The events rail's two `calc()` expressions (52 and 60 chars of inline
+      arithmetic) became `desktop:rail-bleed`.
+- [x] 8.3 `transition-[background,color,border-color,backdrop-filter]` became
+      `transition-nav`.
+
+### 8.4 Forms — done
+
+~30 `[&_label]:` / `[&_input]:` / `[&_select]:` variants across two components
+became `.field` (+ `.field-on-dark` for the purple donation panel) and
+`.field-compact` for the lighter volunteer form. Rendered markup is now:
+
+```html
+<div class="field field-on-dark">
+  <label for="support-area">Support Area</label>
+  <select id="support-area">…</select>
+</div>
+```
+
+- [x] 8.4 Both forms converted. Zero field variants remain.
+
+### 8.5 Navigation CTA — done
+
+- [x] 8.5 The 500-character `[&>span]:` / `[&>svg]:` blob became `.nav-cta`.
+      Only the colours stay in the markup, because they depend on whether the
+      nav is over the hero or scrolled.
+
+### 8.6 Incidental bug found
+
+- [x] A stray `]` in `project-archive.tsx` — `[&_p]:text-white/74]` — made that
+      utility invalid, so the project card body copy was never dimmed to 74%.
+
+### Result
+
+| Metric | Before Step 8 | Now |
+| --- | --- | --- |
+| Arbitrary values over 40 chars | 16 | **0** |
+| `className` strings over 400 chars | 8 | **4** |
+| `className` strings over 200 chars | 59 | **54** |
+| `[&_…]` arbitrary variants | 705 | **567** |
+| CSS bundle | 99,739 B | **92,004 B** |
+| `/get-involved` HTML | 52,452 B | **48,306 B** |
+
+### Still to do
+
+- [ ] 8.7 Four `className` strings still exceed 400 characters, in
+      `blog-magazine.tsx:144`, `home-page.tsx:106` and `:278`, and
+      `involvement-application.tsx:141`. Each is a one-off layout rather than a
+      repeated pattern, so extracting them buys less than the cases above and
+      needs a judgement call about whether a named class helps or just adds
+      indirection.
+- [ ] 8.8 `.section-head` and `.card` are defined but not yet adopted; adopting
+      them would remove several more long strings from the page components.
+- [ ] 8.9 The remaining 567 `[&_…]` variants are genuine per-component styling.
+      Reducing them further means restructuring markup (giving children real
+      classes), not find-and-replace.

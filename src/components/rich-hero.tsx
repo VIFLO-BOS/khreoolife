@@ -31,7 +31,7 @@ export function RichHero({
       <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.86]">
         <SiteImage alt={imageAlt} priority sizes="100vw" src={image} />
       </div>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(12_8_14_/_70%),rgb(12_8_14_/_20%)_64%),linear-gradient(0deg,rgb(12_8_14_/_62%),rgb(12_8_14_/_8%)_62%)]" />
+      <div className="absolute inset-0 scrim-side" />
       <div className="relative z-2 container-page grid grid-cols-[1.15fr_.55fr] items-end gap-[90px] py-[72px] pt-[170px] laptop:grid-cols-1 laptop:gap-[35px] tablet:py-[55px] tablet:pt-[135px]">
         <Reveal className="[&_h1]:mb-6 [&_h1]:max-w-[920px] [&_h1]:font-display [&_h1]:text-[clamp(54px,6.2vw,94px)] [&_h1]:leading-[.98] [&_h1]:font-normal tablet:[&_h1]:text-[48px] [&_p:not(:first-child)]:max-w-[690px] [&_p:not(:first-child)]:font-display [&_p:not(:first-child)]:text-[clamp(18px,1.55vw,23px)] [&_p:not(:first-child)]:text-white/82">
           <p className="eyebrow">{eyebrow}</p>

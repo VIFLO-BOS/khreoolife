@@ -66,7 +66,7 @@ export function CampaignCards() {
                     src={card.image}
                   />
                 </span>
-                <span className="absolute inset-0 bg-[linear-gradient(0deg,rgb(8_6_9_/_74%),transparent_56%)]" />
+                <span className="absolute inset-0 scrim" />
                 <span className="absolute right-5 bottom-[19px] left-5 grid gap-2 text-left [&>span]:text-[10px] [&>span]:font-black [&>span]:tracking-[.1em] [&>strong]:font-display [&>strong]:text-[clamp(22px,2.4vw,35px)] [&>strong]:leading-none [&>strong]:font-normal tablet:[&>strong]:text-[28px]">
                   <span>{card.number}</span>
                   <strong>{card.title}</strong>

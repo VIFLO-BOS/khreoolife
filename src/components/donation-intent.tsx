@@ -65,7 +65,7 @@ export function DonationIntent() {
             src={images.support}
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(79_29_102_/_95%),rgb(79_29_102_/_40%)_65%),linear-gradient(0deg,rgb(79_29_102_/_80%),transparent_65%)]" />
+        <div className="absolute inset-0 scrim-brand" />
         <div className="container-page relative z-2 grid grid-cols-[1.1fr_.9fr] items-end gap-10 pt-[160px] pb-[80px] laptop:grid-cols-1 laptop:pt-[120px]">
           <Reveal className="[&_h1]:mb-6 [&_p]:mb-12 [&_p]:max-w-[420px] [&_p]:text-[18px] [&_p]:text-white/80">
             <p className="eyebrow">Donate Now</p>
@@ -101,7 +101,7 @@ export function DonationIntent() {
               </div>
             </fieldset>
             {selectedAmount === "Custom" ? (
-              <div className="mt-6 [&_label]:mb-2.5 [&_label]:block [&_label]:text-[11px] [&_label]:font-black [&_label]:tracking-[.05em] [&_label]:uppercase [&_input]:w-full [&_input]:rounded-[14px] [&_input]:border [&_input]:border-white/30 [&_input]:bg-transparent [&_input]:p-[18px] [&_input]:text-[16px] [&_input]:text-white [&_input]:outline-none [&_input]:transition-[border-color,background] [&_input]:placeholder:text-white/40 [&_input:focus]:border-white [&_input:focus]:bg-white/5 [&_select]:w-full [&_select]:cursor-pointer [&_select]:appearance-none [&_select]:rounded-[14px] [&_select]:border [&_select]:border-white/30 [&_select]:bg-transparent [&_select]:p-[18px] [&_select]:text-[16px] [&_select]:text-white [&_select]:outline-none [&_select]:transition-[border-color,background] [&_select]:hover:bg-white/5 [&_select]:focus:border-white [&_select>option]:text-ink">
+              <div className="field field-on-dark">
                 <label htmlFor="custom-donation-amount">Custom amount</label>
                 <input
                   id="custom-donation-amount"
@@ -112,7 +112,7 @@ export function DonationIntent() {
                 />
               </div>
             ) : null}
-            <div className="mt-6 [&_label]:mb-2.5 [&_label]:block [&_label]:text-[11px] [&_label]:font-black [&_label]:tracking-[.05em] [&_label]:uppercase [&_input]:w-full [&_input]:rounded-[14px] [&_input]:border [&_input]:border-white/30 [&_input]:bg-transparent [&_input]:p-[18px] [&_input]:text-[16px] [&_input]:text-white [&_input]:outline-none [&_input]:transition-[border-color,background] [&_input]:placeholder:text-white/40 [&_input:focus]:border-white [&_input:focus]:bg-white/5 [&_select]:w-full [&_select]:cursor-pointer [&_select]:appearance-none [&_select]:rounded-[14px] [&_select]:border [&_select]:border-white/30 [&_select]:bg-transparent [&_select]:p-[18px] [&_select]:text-[16px] [&_select]:text-white [&_select]:outline-none [&_select]:transition-[border-color,background] [&_select]:hover:bg-white/5 [&_select]:focus:border-white [&_select>option]:text-ink">
+            <div className="field field-on-dark">
               <label htmlFor="support-area">Support Area</label>
               <select
                 id="support-area"

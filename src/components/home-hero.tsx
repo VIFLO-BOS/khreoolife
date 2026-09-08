@@ -9,19 +9,19 @@ const heroScenes = [
     src: images.homeHero,
     alt: "",
     className:
-      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] animate-[home-scene-cycle_18s_ease-in-out_infinite] [&_img]:size-full [&_img]:object-cover",
+      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] anim-scene [&_img]:size-full [&_img]:object-cover",
   },
   {
     src: images.homeHeroSecond,
     alt: "",
     className:
-      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] animate-[home-scene-cycle_18s_ease-in-out_infinite] [animation-delay:6s] [&_img]:size-full [&_img]:object-cover",
+      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] anim-scene anim-scene-2 [&_img]:size-full [&_img]:object-cover",
   },
   {
     src: images.homeHeroThird,
     alt: "",
     className:
-      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] animate-[home-scene-cycle_18s_ease-in-out_infinite] [animation-delay:12s] [&_img]:size-full [&_img]:object-cover",
+      "absolute -inset-[3%] opacity-0 [transform:scale(1.03)] anim-scene anim-scene-3 [&_img]:size-full [&_img]:object-cover",
   },
 ];
 
@@ -43,7 +43,7 @@ export function HomeHero() {
           </div>
         ))}
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(0,0,0,0.08)_0_18%,rgba(0,0,0,0.30)_58%,rgba(0,0,0,0.46)_100%),linear-gradient(180deg,rgba(5,4,6,0.34),rgba(5,4,6,0.23)_42%,rgba(5,4,6,0.53))]" />
+      <div className="absolute inset-0 scrim-hero" />
       <div className="relative z-2 w-[min(920px,calc(100%_-_48px))] text-center">
         <p className="mb-[30px] flex items-center justify-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[0.13em] text-white/82 uppercase before:h-px before:w-6 before:bg-current before:content-['']">
           Khreeolife · The Ordained Life

@@ -238,7 +238,7 @@ export function EventsRail() {
 
         <div
           ref={viewportRef}
-          className="w-full flex-none overflow-hidden motion-reduce:overflow-x-auto desktop:w-[calc(100vw-max(32px,(100vw-var(--max-width))/2))] desktop:mr-[calc((100vw-min(var(--max-width),calc(100vw-64px)))/-2)]"
+          className="w-full flex-none overflow-hidden motion-reduce:overflow-x-auto desktop:rail-bleed"
         >
           <motion.div
             ref={trackRef}

@@ -83,7 +83,7 @@ export function ProjectArchive() {
                 src={project.image}
               />
             </div>
-            <div className="absolute inset-0 bg-[linear-gradient(0deg,rgb(10_7_11_/_86%),rgb(10_7_11_/_6%)_66%)]" />
+            <div className="absolute inset-0 scrim-photo" />
             <div className="absolute top-5 right-5 left-5 z-2 flex items-center justify-between gap-5 text-[9px] tracking-[.08em] text-white uppercase">
               <span
                 className={`inline-flex rounded-full border border-current px-[9px] py-[6px] text-[9px] leading-none font-black tracking-[.08em] uppercase ${project.status === "Upcoming" ? "border-[#28761e] bg-[#e8fbe4] text-[#28761e]" : ""}`}
@@ -92,7 +92,7 @@ export function ProjectArchive() {
               </span>
               <span>{project.pillar}</span>
             </div>
-            <div className="absolute right-[26px] bottom-[26px] left-[26px] z-2 max-w-[560px] text-white [&_.project-no]:text-[10px] [&_.project-no]:font-black [&_.project-no]:tracking-[.1em] [&_h3]:my-2.5 [&_h3]:font-display [&_h3]:text-[clamp(31px,3vw,50px)] [&_h3]:leading-none [&_h3]:font-normal [&_p]:max-w-[500px] [&_p]:text-[13px] [&_p]:text-white/74]">
+            <div className="absolute right-[26px] bottom-[26px] left-[26px] z-2 max-w-[560px] text-white [&_.project-no]:text-[10px] [&_.project-no]:font-black [&_.project-no]:tracking-[.1em] [&_h3]:my-2.5 [&_h3]:font-display [&_h3]:text-[clamp(31px,3vw,50px)] [&_h3]:leading-none [&_h3]:font-normal [&_p]:max-w-[500px] [&_p]:text-[13px] [&_p]:text-white/74">
               <span className="project-no">{project.number}</span>
               <h3>{project.title}</h3>
               <p>{project.description}</p>
