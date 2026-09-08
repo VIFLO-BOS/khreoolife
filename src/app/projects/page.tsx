@@ -112,7 +112,7 @@ export default function ProjectsPage() {
               Volunteer your time or express sponsorship interest in one of
               Khreeolife&apos;s projects.
             </p>
-            <Link href="/get-involved" className="inline-flex cursor-pointer items-center overflow-hidden rounded-full border border-white bg-white font-black tracking-[.04em] text-ink transition-transform duration-[220ms] hover:-translate-y-1 hover:[&_.circle]:bg-brand hover:[&_.circle]:text-white hover:[&_.label]:text-brand">
+            <Link href="/get-involved" className="inline-flex cursor-pointer items-center overflow-hidden rounded-full border border-white bg-white font-black tracking-[.04em] text-ink transition-transform duration-(--duration-panel) hover:-translate-y-1 hover:[&_.circle]:bg-brand hover:[&_.circle]:text-white hover:[&_.label]:text-brand">
               <span className="label">Get Involved</span>
               <span className="circle" aria-hidden="true">
                 +

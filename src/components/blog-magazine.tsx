@@ -132,7 +132,7 @@ export function BlogMagazine() {
         <section className="bg-white py-[120px] tablet:py-[80px]">
           <div className="container-page">
             <Reveal className="grid grid-cols-[1.1fr_.9fr] gap-6 rounded-[32px] border border-ink p-3 pr-[50px] laptop:grid-cols-1 laptop:pr-3 laptop:pb-[50px]">
-              <div className="relative min-h-[460px] overflow-hidden rounded-[22px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+              <div className="relative min-h-[460px] overflow-hidden rounded-[22px] photo">
                 {featuredArticle.image && featuredArticle.imageAlt ? (
                   <SiteImage
                     alt={featuredArticle.imageAlt}
@@ -298,7 +298,7 @@ export function BlogMagazine() {
 function ArticleArt({ article }: { article: Article }) {
   if (article.image && article.imageAlt) {
     return (
-      <div className="relative h-[260px] border-b border-ink [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+      <div className="relative h-[260px] border-b border-ink photo">
         <SiteImage
           alt={article.imageAlt}
           sizes="(max-width: 760px) 100vw, 33vw"

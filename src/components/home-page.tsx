@@ -19,7 +19,7 @@ export function HomePage() {
       <PillarRotator />
 
       <section
-        className="bg-paper py-[54px] pb-[104px] tablet:pt-[42px] tablet:pb-[82px]"
+        className="bg-paper py-section-enter pb-section-end tablet:pt-[42px] tablet:pb-[82px]"
         aria-labelledby="campaign-title"
       >
         <div className="container-page">
@@ -31,7 +31,7 @@ export function HomePage() {
       </section>
 
       <section
-        className="bg-paper py-[58px] pb-[104px] tablet:pt-[46px] tablet:pb-[82px]"
+        className="bg-paper py-section-enter pb-section-end tablet:pt-[46px] tablet:pb-[82px]"
         aria-labelledby="mission-vision-title"
       >
         <div className="container-page">
@@ -76,7 +76,7 @@ export function HomePage() {
             </Reveal>
             <Reveal className="relative grid min-h-[610px] place-items-center tablet:min-h-[430px]">
               <div className="relative grid w-[min(520px,90%)] aspect-square place-items-center rounded-full border border-ink">
-                <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-[0_16px_50px_rgb(0_0_0_/_15%)] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:animate-[mission-photo-zoom_9s_ease-in-out_infinite_alternate]">
+                <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-float photo [&_img]:animate-[mission-photo-zoom_9s_ease-in-out_infinite_alternate]">
                   <SiteImage
                     alt="Community members gathered together"
                     sizes="(max-width: 760px) 72vw, 400px"
@@ -99,7 +99,7 @@ export function HomePage() {
       </section>
 
       <section
-        className="bg-white py-[108px] tablet:py-[76px]"
+        className="seam-top bg-white py-section tablet:py-section-mobile"
         aria-labelledby="featured-projects-title"
       >
         <div className="container-page">
@@ -129,7 +129,7 @@ export function HomePage() {
           </Reveal>
           <Reveal className="grid grid-cols-[1.15fr_.85fr] gap-3 laptop:grid-cols-1">
             <article className="relative min-h-[610px] overflow-hidden rounded-brand border border-ink text-white tablet:min-h-[500px]">
-              <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+              <div className="absolute inset-0 photo">
                 <SiteImage
                   alt="Iloba Outreach"
                   sizes="(max-width: 1050px) 100vw, 62vw"
@@ -151,7 +151,7 @@ export function HomePage() {
               {remainingProjects.map((project) => (
                 <article
                   key={project.id}
-                  className="flex min-h-[194px] items-end overflow-hidden rounded-brand border border-ink bg-white p-6 transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-[5px] hover:shadow-[0_18px_42px_rgb(18_17_19_/_10%)] first:bg-cream nth-[2]:bg-soft-purple laptop:min-h-[220px] tablet:min-h-[180px]"
+                  className="flex min-h-[194px] items-end overflow-hidden rounded-brand border border-ink bg-white p-6 transition-[transform,box-shadow] duration-(--duration-panel) hover:-translate-y-[5px] hover:shadow-card first:bg-cream nth-[2]:bg-soft-purple laptop:min-h-[220px] tablet:min-h-[180px]"
                 >
                   <div>
                     <span
@@ -174,7 +174,7 @@ export function HomePage() {
       <EventsRail />
 
       <section
-        className="bg-white py-[108px] tablet:py-[76px]"
+        className="seam-top bg-white py-section tablet:py-section-mobile"
         aria-labelledby="stories-title"
       >
         <div className="container-page">
@@ -198,7 +198,7 @@ export function HomePage() {
           </Reveal>
           <Reveal className="grid grid-cols-12 gap-3 tablet:grid-cols-1">
             <article className="group relative col-[1/7] row-[1/3] min-h-[672px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:row-auto tablet:min-h-[520px]">
-              <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
+              <div className="absolute inset-0 photo [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Young volunteers serving their community in Ghana"
                   sizes="(max-width: 760px) 100vw, 52vw"
@@ -216,7 +216,7 @@ export function HomePage() {
               </div>
             </article>
             <article className="group relative col-[7/13] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
-              <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
+              <div className="absolute inset-0 photo [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Students participating in class"
                   sizes="(max-width: 760px) 100vw, 46vw"
@@ -231,7 +231,7 @@ export function HomePage() {
               </div>
             </article>
             <article className="group relative col-[7/10] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
-              <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
+              <div className="absolute inset-0 photo [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Community education meeting"
                   sizes="(max-width: 760px) 100vw, 26vw"
@@ -250,7 +250,7 @@ export function HomePage() {
               </div>
             </article>
             <article className="group relative col-[10/13] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
-              <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
+              <div className="absolute inset-0 photo [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Christian worship gathering"
                   sizes="(max-width: 760px) 100vw, 26vw"
@@ -272,7 +272,7 @@ export function HomePage() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-brand py-[108px] text-white after:absolute after:right-[-60px] after:bottom-[-145px] after:text-[380px] after:font-black after:tracking-[-55px] after:text-white after:opacity-[.055] after:content-['ee'] tablet:py-[76px]"
+        className="relative overflow-hidden bg-brand py-[108px] text-white after:absolute after:right-[-60px] after:bottom-[-145px] after:text-[380px] after:font-black after:tracking-[-55px] after:text-white after:opacity-[.055] after:content-['ee'] tablet:py-section-mobile"
         aria-labelledby="join-title"
       >
         <Reveal className="relative z-1 container-page grid grid-cols-[1fr_auto] items-end gap-[50px] tablet:grid-cols-1 tablet:items-start tablet:gap-6 [&_h2]:max-w-[850px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_p:not(.eyebrow)]:mt-5 [&_p:not(.eyebrow)]:max-w-[650px] [&_p:not(.eyebrow)]:text-[17px] [&_p:not(.eyebrow)]:text-white/74 tablet:[&_h2]:text-[clamp(38px,11vw,52px)]">

@@ -55,11 +55,11 @@ export function ProjectArchive() {
       <div
         className={`grid grid-cols-12 auto-rows-[118px] gap-3 laptop:grid-cols-1 laptop:auto-rows-auto ${activeFilter === "all" ? "" : "grid-cols-1 auto-rows-auto"}`}
       >
-        {visibleProjects.map((project, index) => (
+        {visibleProjects.map((project) => (
           <article
             key={project.id}
             className={[
-              "relative min-h-[480px] overflow-hidden rounded-[28px] border border-ink bg-[#ddd] hover:[&_img]:scale-[1.045] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[800ms] [&_img]:[transition-timing-function:cubic-bezier(.2,.75,.2,1)] laptop:min-h-[520px] tablet:min-h-[470px]",
+              "relative min-h-[480px] overflow-hidden rounded-[28px] border border-ink bg-[#ddd] hover:[&_img]:scale-[1.045] photo [&_img]:transition-transform [&_img]:duration-[800ms] [&_img]:[transition-timing-function:cubic-bezier(.2,.75,.2,1)] laptop:min-h-[520px] tablet:min-h-[470px]",
               project.id === "iloba"
                 ? "col-[1/8] row-[1/6] laptop:col-auto laptop:row-auto"
                 : "",
@@ -125,7 +125,7 @@ export function ProjectArchive() {
 function ProjectDetail({ project }: { project: Project }) {
   return (
     <>
-      <div className="relative h-[42vh] min-h-[300px] bg-[#ddd] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+      <div className="relative h-[42vh] min-h-[300px] bg-[#ddd] photo">
         <SiteImage
           alt={project.imageAlt}
           sizes="min(100vw, 680px)"

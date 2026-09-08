@@ -26,7 +26,7 @@ export function PillarRotator() {
 
   return (
     <section
-      className="bg-paper py-[58px] pb-[108px] tablet:pt-11 tablet:pb-[76px]"
+      className="bg-paper py-section-enter pb-section tablet:pt-11 tablet:pb-[76px]"
       aria-labelledby="pillar-overview-title"
     >
       <div className="container-page">

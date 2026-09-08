@@ -62,9 +62,9 @@ export function EventArchive() {
                 </span>
               </div>
               <div
-                className={`grid min-h-[360px] overflow-hidden rounded-[26px] border border-ink bg-white transition-transform duration-[350ms] hover:translate-x-1.5 hover:[&_img]:scale-[1.035] tablet:grid-cols-1 ${index % 2 === 1 ? "grid-cols-[1.1fr_.9fr] [&_.timeline-image]:order-2 tablet:[&_.timeline-image]:order-0" : "grid-cols-[.9fr_1.1fr]"}`}
+                className={`grid min-h-[360px] overflow-hidden rounded-[26px] border border-ink bg-white transition-transform duration-(--duration-lift) hover:translate-x-1.5 hover:[&_img]:scale-[1.035] tablet:grid-cols-1 ${index % 2 === 1 ? "grid-cols-[1.1fr_.9fr] [&_.timeline-image]:order-2 tablet:[&_.timeline-image]:order-0" : "grid-cols-[.9fr_1.1fr]"}`}
               >
-                <div className="timeline-image relative overflow-hidden tablet:h-[260px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[650ms]">
+                <div className="timeline-image relative overflow-hidden tablet:h-[260px] photo [&_img]:transition-transform [&_img]:duration-[650ms]">
                   <SiteImage
                     alt={event.imageAlt}
                     sizes="(max-width: 760px) 100vw, 45vw"
@@ -117,7 +117,7 @@ export function EventArchive() {
 function EventDetail({ event }: { event: SiteEvent }) {
   return (
     <>
-      <div className="relative h-[42vh] min-h-[300px] bg-[#ddd] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+      <div className="relative h-[42vh] min-h-[300px] bg-[#ddd] photo">
         <SiteImage
           alt={event.imageAlt}
           sizes="min(100vw, 680px)"

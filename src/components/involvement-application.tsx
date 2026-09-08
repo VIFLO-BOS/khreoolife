@@ -62,7 +62,7 @@ export function InvolvementApplication() {
           </Reveal>
           <div className="grid grid-cols-2 gap-3 laptop:grid-cols-1">
             <Reveal className="group relative overflow-hidden rounded-[28px] border border-ink bg-white">
-              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
+              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] photo [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
                 <SiteImage
                   alt="Volunteers working together"
                   sizes="(max-width: 760px) 100vw, 50vw"
@@ -91,7 +91,7 @@ export function InvolvementApplication() {
               </div>
             </Reveal>
             <Reveal className="group relative overflow-hidden rounded-[28px] border border-ink bg-brand text-white">
-              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
+              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] photo [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
                 <SiteImage
                   alt="People discussing a partnership"
                   sizes="(max-width: 760px) 100vw, 50vw"

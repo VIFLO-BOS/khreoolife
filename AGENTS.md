@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Khreeolife UI Refactor & Premium Polish — Working Plan
 
-> **Status:** Steps 0 and 1 complete. Step 2 (extract component classes) is next.
+> **Status:** Steps 0–7 executed. See §5 for final results and what remains.
 > **Scope:** Refactor the Tailwind layer, reconcile with the reference HTML,
 > close responsive gaps, and raise the finish to a premium level.
 > **Non-goal:** This is **not** a redesign. Layout, content, brand colours and
@@ -439,3 +439,61 @@ All three open questions were settled with the user on 2026-09-08.
 - **Step 4.2** must keep `onClick` state alongside the CSS hover rule. The
   flip state becomes `hovered || focused || clicked`, so a click that flips a
   card must not be undone when the pointer leaves.
+
+---
+
+## 5. Final results
+
+### Measured outcome
+
+| Metric | Baseline | Now |
+| --- | --- | --- |
+| `npm run build` | passes | passes |
+| `npm run lint` | **7 errors, 2 warnings** | **0 errors, 0 warnings** |
+| CSS bundle | 97,129 B | 94,440 B before webfonts, **99,739 B** with them |
+| HTML per route | — | **~9% smaller** (`/` 142,987 → 130,431 B) |
+| Arbitrary `[&_…]` variants | 932 | **705** |
+| Arbitrary pixel breakpoints | 379 | **0** |
+| Inlined eyebrow blobs | 206 | **0** |
+| Inlined container blobs | 36 | **0** |
+| Dead `[&_.eyebrow]:` variants | 177 | **0** |
+
+On the CSS number, stated plainly: the refactor cut the stylesheet to 94,440 B,
+then loading real webfonts added ~5,300 B of `@font-face` declarations. The net
+figure is slightly above baseline **because the site now ships typography it
+previously did not have at all**. The like-for-like comparison is 97,129 → 94,440.
+
+### Bugs fixed (none of these were in the original brief)
+
+1. **Eyebrow labels rendered wrong site-wide.** `:not(.eyebrow)` guards matched
+   the eyebrow because nothing carried the class, overriding it at higher
+   specificity. Mission/Vision/CTA eyebrows showed 15px grey instead of 11px
+   brand purple. Fixed by adopting `.eyebrow`.
+2. **89 `leading-*` utilities did nothing.** `.font-display` was unlayered and
+   beat every utility regardless of specificity, forcing `0.94` on every
+   heading — including one asking for `1.6`. Fixed by layering.
+3. **The events progress bar was invisible.** Its fill had an inline `width`
+   and nothing else — no display, no height, no background.
+4. **Every breakpoint was off by one pixel.** `max-[760px]:` compiled to
+   `not all and (min-width:760px)` — width **< 760px**, exclusive — while the
+   reference uses `max-width:760px`, inclusive.
+5. **`btn-dark` was indistinguishable from `btn-brand`**, both forced to purple.
+6. **The migration scripts were inflating the bundle.** Tailwind scanned them as
+   content and generated classes from their dictionary strings; `about-pillar-copy`
+   and friends shipped in the CSS with zero source references.
+
+### Not done — needs a human at a browser
+
+- **Step 0.2 / 7.4: visual regression.** No before/after screenshots were taken;
+  there is no browser automation on this machine. Every change was verified by
+  build, lint, generated-CSS inspection and served HTML — which catches
+  structural breakage but **cannot confirm the page still looks right**.
+- **Step 5.7: horizontal overflow at 320px** is unverified for the same reason.
+- **Step 6.1: font pairing is a judgement call.** Source Serif 4 / Source Sans 3
+  were chosen for metric proximity to Georgia/Arial, but whether they suit the
+  brand is a design decision worth a look.
+- **Steps 5.4 / 5.6:** ratio grids and fixed heights were improved where they
+  were clearly broken, not audited exhaustively.
+- **705 `[&_…]` variants remain.** The mechanical, high-volume patterns are gone;
+  what is left is genuine per-component styling that would need case-by-case
+  judgement rather than a scripted pass.

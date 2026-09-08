@@ -250,9 +250,9 @@ export function EventsRail() {
                 key={event.id}
                 href="/events"
                 data-event-motion-card
-                className={`group min-h-[480px] basis-[clamp(320px,29vw,390px)] flex-none overflow-hidden rounded-brand border border-ink bg-white text-ink origin-bottom transition-[transform,opacity,box-shadow] duration-[350ms] hover:-translate-y-[7px] hover:scale-100 hover:opacity-100 hover:shadow-[0_22px_52px_rgb(18_17_19_/_12%)] motion-reduce:opacity-100 motion-reduce:transform-none tablet-lg:min-h-[450px] tablet-lg:basis-[min(330px,78vw)] tablet:min-h-[430px] tablet:basis-[82vw] mobile:min-h-[470px] ${index === activeIndex ? "shadow-[0_22px_52px_rgb(18_17_19_/_12%)]" : "translate-y-7 scale-95 opacity-[.67]"}`}
+                className={`group min-h-[480px] basis-[clamp(320px,29vw,390px)] flex-none overflow-hidden rounded-brand border border-ink bg-white text-ink origin-bottom transition-[transform,opacity,box-shadow] duration-(--duration-lift) hover:-translate-y-[7px] hover:scale-100 hover:opacity-100 hover:shadow-raised motion-reduce:opacity-100 motion-reduce:transform-none tablet-lg:min-h-[450px] tablet-lg:basis-[min(330px,78vw)] tablet:min-h-[430px] tablet:basis-[82vw] mobile:min-h-[470px] ${index === activeIndex ? "shadow-raised" : "translate-y-7 scale-95 opacity-[.67]"}`}
               >
-                <div className="relative h-[255px] overflow-hidden border-b border-ink tablet-lg:h-[235px] tablet:h-[220px] mobile:h-[250px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[550ms] group-hover:[&_img]:scale-[1.035]">
+                <div className="relative h-[255px] overflow-hidden border-b border-ink tablet-lg:h-[235px] tablet:h-[220px] mobile:h-[250px] photo [&_img]:transition-transform [&_img]:duration-(--duration-media) group-hover:[&_img]:scale-[1.035]">
                   <Image
                     fill
                     alt={event.imageAlt}

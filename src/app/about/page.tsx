@@ -107,7 +107,7 @@ export default function AboutPage() {
                 key={pillar.name}
                 className={`about-pillar-panel pillar-${index + 1}`}
               >
-                <div className="relative [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+                <div className="relative photo">
                   <SiteImage
                     alt={pillar.images[0].alt}
                     sizes="(max-width: 760px) 100vw, 47vw"

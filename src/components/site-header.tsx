@@ -271,7 +271,7 @@ export function SiteHeader() {
     isScrolled || activeMenu || isMobileMenuOpen || pathname !== "/",
   );
     const headerClassName = [
-      "fixed z-[100] inset-x-0 top-0 isolate transition-[background,color,border-color,backdrop-filter] duration-[280ms]",
+      "fixed z-[100] inset-x-0 top-0 isolate transition-[background,color,border-color,backdrop-filter] duration-(--duration-hover)",
       isLightNavigation
         ? "border-b border-ink/8 bg-cream/[.97] text-ink backdrop-blur-[18px]"
         : "text-white",
@@ -382,7 +382,7 @@ export function SiteHeader() {
         {activeNavigationMenu ? (
           <motion.div
             id={`${activeNavigationMenu.key}-menu`}
-            className="absolute z-[-1] top-[var(--nav-height)] inset-x-0 rounded-b-[22px] bg-cream text-ink shadow-[0_24px_54px_rgb(0_0_0_/_13%)]"
+            className="absolute z-[-1] top-[var(--nav-height)] inset-x-0 rounded-b-[22px] bg-cream text-ink shadow-panel"
             initial={prefersReducedMotion ? false : { opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? undefined : { opacity: 0, y: -16 }}

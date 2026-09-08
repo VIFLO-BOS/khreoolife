@@ -58,7 +58,7 @@ export function CampaignCards() {
               }}
             >
               <span className="absolute inset-0 block overflow-hidden rounded-[24px] border border-ink text-white [backface-visibility:hidden]">
-                <span className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
+                <span className="absolute inset-0 photo">
                   <Image
                     fill
                     alt={card.imageAlt}
