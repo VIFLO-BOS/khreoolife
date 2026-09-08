@@ -190,18 +190,18 @@ export function EventsRail() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-clip bg-cream max-[900px]:min-h-[780px]"
+      className="relative overflow-clip bg-cream tablet-lg:min-h-[780px]"
       aria-labelledby="latest-events-title"
     >
-      <div className="sticky top-[var(--nav-height)] mx-auto flex min-h-[calc(100svh-var(--nav-height))] w-[min(var(--max-width),calc(100%_-_64px))] flex-col justify-center py-[62px] pb-12 max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[900px]:py-[42px] max-[900px]:pb-9 max-[760px]:relative max-[760px]:top-auto max-[760px]:min-h-0 max-[760px]:w-[calc(100%_-_28px)] max-[760px]:py-[30px] max-[760px]:pb-7 max-[400px]:w-[calc(100%_-_20px)]">
-        <div className="mb-10 grid flex-none grid-cols-[1.05fr_.65fr] items-end gap-[72px] max-[900px]:mb-[26px] max-[900px]:grid-cols-1 max-[900px]:gap-[22px]">
+      <div className="sticky top-[var(--nav-height)] container-page flex min-h-[calc(100svh-var(--nav-height))] flex-col justify-center py-[62px] pb-12 tablet-lg:py-[42px] tablet-lg:pb-9 tablet:relative tablet:top-auto tablet:min-h-0 tablet:py-[30px] tablet:pb-7">
+        <div className="mb-10 grid flex-none grid-cols-[1.05fr_.65fr] items-end gap-[72px] tablet-lg:mb-[26px] tablet-lg:grid-cols-1 tablet-lg:gap-[22px]">
           <div>
-            <p className="mb-4 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+            <p className="eyebrow mb-4">
               Latest Events
             </p>
             <h2
               id="latest-events-title"
-              className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal max-[760px]:text-[clamp(38px,11vw,52px)]"
+              className="display-2 tablet:text-[clamp(38px,11vw,52px)]"
             >
               Past, present
               <br />
@@ -209,7 +209,7 @@ export function EventsRail() {
             </h2>
           </div>
           <div className="pb-2">
-            <p className="mb-[26px] max-w-[430px] text-[15px] text-muted max-[760px]:mb-[14px]">
+            <p className="mb-[26px] max-w-[430px] text-[15px] text-muted tablet:mb-[14px]">
               Every event belongs to a larger project story. Move through recent
               outreach and what Khreeolife is preparing next.
             </p>
@@ -238,7 +238,7 @@ export function EventsRail() {
 
         <div
           ref={viewportRef}
-          className="w-full flex-none overflow-hidden motion-reduce:overflow-x-auto min-[1051px]:w-[calc(100vw-max(32px,(100vw-var(--max-width))/2))] min-[1051px]:mr-[calc((100vw-min(var(--max-width),calc(100vw-64px)))/-2)]"
+          className="w-full flex-none overflow-hidden motion-reduce:overflow-x-auto desktop:w-[calc(100vw-max(32px,(100vw-var(--max-width))/2))] desktop:mr-[calc((100vw-min(var(--max-width),calc(100vw-64px)))/-2)]"
         >
           <motion.div
             ref={trackRef}
@@ -250,9 +250,9 @@ export function EventsRail() {
                 key={event.id}
                 href="/events"
                 data-event-motion-card
-                className={`group min-h-[480px] basis-[clamp(320px,29vw,390px)] flex-none overflow-hidden rounded-brand border border-ink bg-white text-ink origin-bottom transition-[transform,opacity,box-shadow] duration-[350ms] hover:-translate-y-[7px] hover:scale-100 hover:opacity-100 hover:shadow-[0_22px_52px_rgb(18_17_19_/_12%)] motion-reduce:opacity-100 motion-reduce:transform-none max-[900px]:min-h-[450px] max-[900px]:basis-[min(330px,78vw)] max-[760px]:min-h-[430px] max-[760px]:basis-[82vw] ${index === activeIndex ? "shadow-[0_22px_52px_rgb(18_17_19_/_12%)]" : "translate-y-7 scale-95 opacity-[.67]"}`}
+                className={`group min-h-[480px] basis-[clamp(320px,29vw,390px)] flex-none overflow-hidden rounded-brand border border-ink bg-white text-ink origin-bottom transition-[transform,opacity,box-shadow] duration-[350ms] hover:-translate-y-[7px] hover:scale-100 hover:opacity-100 hover:shadow-[0_22px_52px_rgb(18_17_19_/_12%)] motion-reduce:opacity-100 motion-reduce:transform-none tablet-lg:min-h-[450px] tablet-lg:basis-[min(330px,78vw)] tablet:min-h-[430px] tablet:basis-[82vw] mobile:min-h-[470px] ${index === activeIndex ? "shadow-[0_22px_52px_rgb(18_17_19_/_12%)]" : "translate-y-7 scale-95 opacity-[.67]"}`}
               >
-                <div className="relative h-[255px] overflow-hidden border-b border-ink max-[900px]:h-[235px] max-[760px]:h-[220px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[550ms] group-hover:[&_img]:scale-[1.035]">
+                <div className="relative h-[255px] overflow-hidden border-b border-ink tablet-lg:h-[235px] tablet:h-[220px] mobile:h-[250px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[550ms] group-hover:[&_img]:scale-[1.035]">
                   <Image
                     fill
                     alt={event.imageAlt}
@@ -270,7 +270,7 @@ export function EventsRail() {
                     <span>{event.project}</span>
                     <span>{event.location}</span>
                   </div>
-                  <h3 className="mt-7 mb-5 font-display text-[31px] leading-none font-normal max-[760px]:text-[27px]">
+                  <h3 className="mt-7 mb-5 font-display text-[31px] leading-none font-normal tablet:text-[27px] mobile:text-[27px]">
                     {event.title}
                   </h3>
                   <div className="mt-auto flex justify-between gap-[14px] border-t border-line pt-4 text-[11px] font-black">
@@ -288,10 +288,11 @@ export function EventsRail() {
           aria-hidden="true"
         >
           <span
+            className="block h-full bg-brand transition-[width] duration-(--duration-media) ease-brand"
             style={{ width: `${((activeIndex + 1) / events.length) * 100}%` }}
           />
         </div>
-        <div className="mt-[18px] flex flex-none items-center justify-between gap-5 max-[760px]:items-end">
+        <div className="mt-[18px] flex flex-none items-center justify-between gap-5 tablet:items-end">
           <span className="text-[10px] font-black tracking-[.1em]">
             {String(activeIndex + 1).padStart(2, "0")} /{" "}
             {String(events.length).padStart(2, "0")}

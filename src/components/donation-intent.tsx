@@ -56,7 +56,7 @@ export function DonationIntent() {
 
   return (
     <main>
-      <section className="relative min-h-[90svh] overflow-hidden bg-brand text-white max-[760px]:min-h-[800px]">
+      <section className="relative min-h-[90svh] overflow-hidden bg-brand text-white tablet:min-h-[800px]">
         <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-50 [&_img]:mix-blend-multiply">
           <SiteImage
             alt="Hands supporting a community initiative"
@@ -66,24 +66,24 @@ export function DonationIntent() {
           />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(79_29_102_/_95%),rgb(79_29_102_/_40%)_65%),linear-gradient(0deg,rgb(79_29_102_/_80%),transparent_65%)]" />
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] relative z-2 grid grid-cols-[1.1fr_.9fr] items-end gap-10 pt-[160px] pb-[80px] max-[1050px]:grid-cols-1 max-[1050px]:pt-[120px]">
+        <div className="container-page relative z-2 grid grid-cols-[1.1fr_.9fr] items-end gap-10 pt-[160px] pb-[80px] laptop:grid-cols-1 laptop:pt-[120px]">
           <Reveal className="[&_h1]:mb-6 [&_p]:mb-12 [&_p]:max-w-[420px] [&_p]:text-[18px] [&_p]:text-white/80">
-            <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Donate Now</p>
-            <h1 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">Put resources behind transformation.</h1>
+            <p className="eyebrow">Donate Now</p>
+            <h1 className="display-2">Put resources behind transformation.</h1>
             <p>
               Support Khreeolife&apos;s work across Community Development,
               Education and Christian Missions.
             </p>
             <span className="inline-flex rounded-full border border-current px-[9px] py-[6px] text-[9px] leading-none font-black tracking-[.08em] uppercase">the ordained life</span>
           </Reveal>
-          <Reveal className="rounded-[32px] border border-white/20 bg-white/10 p-[42px] backdrop-blur-md max-[760px]:p-[26px]">
+          <Reveal className="rounded-[32px] border border-white/20 bg-white/10 p-[42px] backdrop-blur-md tablet:p-[26px]">
             <div className="mb-8 flex items-center justify-between border-b border-white/20 pb-[18px] [&>span]:text-[11px] [&>span]:font-black [&>span]:tracking-[.1em] [&>span]:text-yellow [&>span]:uppercase [&>small]:text-[11px] [&>small]:text-white/60">
               <span>Donation intent</span>
               <small>Prototype - payment gateway is future scope.</small>
             </div>
             <fieldset>
               <legend>Choose an amount</legend>
-              <div className="grid grid-cols-3 gap-2.5 max-[400px]:grid-cols-2">
+              <div className="grid grid-cols-3 gap-2.5 phone:grid-cols-2">
                 {amounts.map((amount) => (
                   <button
                     key={amount}
@@ -141,12 +141,12 @@ export function DonationIntent() {
         </div>
       </section>
 
-      <section className="bg-white py-[120px] max-[760px]:py-[80px]">
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
+      <section className="bg-white py-[120px] tablet:py-[80px]">
+        <div className="container-page">
           <Reveal className="rich-intro-grid">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Where support can go</p>
-              <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+              <p className="eyebrow">Where support can go</p>
+              <h2 className="display-2">
                 Choose the work you want to stand behind.
               </h2>
             </div>
@@ -157,14 +157,14 @@ export function DonationIntent() {
               </p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-3 gap-4 max-[1050px]:grid-cols-1">
+          <div className="grid grid-cols-3 gap-4 laptop:grid-cols-1">
             {givingDirections.map((direction) => {
               const Icon = direction.icon;
 
               return (
                 <Reveal
                   key={direction.title}
-                  className={`flex flex-col rounded-[24px] border border-ink p-10 max-[760px]:p-8 [&>span]:mb-auto [&>span]:font-display [&>span]:text-[64px] [&>span]:leading-[.8] [&>span]:text-ink/15 [&_h3]:my-6 [&_h3]:font-display [&_h3]:text-[32px] [&_h3]:leading-[1.1] [&_h3]:font-normal [&_p]:text-[15px] [&_p]:text-muted ${direction.tone}`}
+                  className={`flex flex-col rounded-[24px] border border-ink p-10 tablet:p-8 [&>span]:mb-auto [&>span]:font-display [&>span]:text-[64px] [&>span]:leading-[.8] [&>span]:text-ink/15 [&_h3]:my-6 [&_h3]:font-display [&_h3]:text-[32px] [&_h3]:leading-[1.1] [&_h3]:font-normal [&_p]:text-[15px] [&_p]:text-muted ${direction.tone}`}
                 >
                   <Icon
                     className="mb-12 text-brand"
@@ -183,7 +183,7 @@ export function DonationIntent() {
       </section>
 
       <section className="bg-ink-deep py-[80px] text-white">
-        <Reveal className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] grid grid-cols-4 gap-8 max-[1050px]:grid-cols-2 max-[400px]:grid-cols-1 [&>div>p]:max-w-[200px] [&>div>p]:text-[13px] [&>div>p]:text-white/60">
+        <Reveal className="container-page grid grid-cols-4 gap-8 laptop:grid-cols-2 phone:grid-cols-1 [&>div>p]:max-w-[200px] [&>div>p]:text-[13px] [&>div>p]:text-white/60">
           <div>
             <span className="mb-2 block font-display text-[54px] leading-none text-yellow">20</span>
             <p>students named in the university support project.</p>
@@ -203,11 +203,11 @@ export function DonationIntent() {
         </Reveal>
       </section>
 
-      <section className="bg-brand py-[120px] text-white max-[760px]:py-[80px]">
-        <Reveal className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] grid grid-cols-[1fr_.7fr] items-end gap-10 max-[1050px]:grid-cols-1 [&_.eyebrow]:mb-5 [&_.eyebrow]:text-yellow [&>div:last-child>p]:mb-8 [&>div:last-child>p]:max-w-[420px] [&>div:last-child>p]:text-[18px] [&>div:last-child>p]:text-white/70">
+      <section className="bg-brand py-[120px] text-white tablet:py-[80px]">
+        <Reveal className="container-page grid grid-cols-[1fr_.7fr] items-end gap-10 laptop:grid-cols-1 [&>div:last-child>p]:mb-8 [&>div:last-child>p]:max-w-[420px] [&>div:last-child>p]:text-[18px] [&>div:last-child>p]:text-white/70">
           <div>
-            <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">V1 Scope</p>
-            <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+            <p className="eyebrow">V1 Scope</p>
+            <h2 className="display-2">
               Designed now.
               <br />
               Payment processing later.

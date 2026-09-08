@@ -29,7 +29,7 @@ export function EventArchive() {
 
   return (
     <>
-      <div className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-[26px] flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-paper/94 px-[15px] py-[13px] backdrop-blur-[16px] max-[760px]:relative max-[760px]:top-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:rounded-[20px]">
+      <div className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-[26px] flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-paper/94 px-[15px] py-[13px] backdrop-blur-[16px] tablet:relative tablet:top-auto tablet:flex-col tablet:items-start tablet:rounded-[20px]">
         <div className="flex flex-wrap gap-[6px]" aria-label="Filter events">
           {filters.map((filter) => (
             <button
@@ -49,22 +49,22 @@ export function EventArchive() {
         </span>
       </div>
 
-      <div className="relative mt-[18px] before:absolute before:top-0 before:bottom-0 before:left-12 before:w-px before:bg-ink before:content-[''] max-[760px]:before:left-6">
+      <div className="relative mt-[18px] before:absolute before:top-0 before:bottom-0 before:left-12 before:w-px before:bg-ink before:content-[''] tablet:before:left-6">
         {visibleEvents.length > 0 ? (
           visibleEvents.map((event, index) => (
             <article
               key={event.id}
-              className="grid grid-cols-[96px_1fr] gap-7 pb-12 max-[760px]:grid-cols-[48px_1fr] max-[760px]:gap-[14px]"
+              className="grid grid-cols-[96px_1fr] gap-7 pb-12 tablet:grid-cols-[48px_1fr] tablet:gap-[14px]"
             >
-              <div className="relative z-2 flex w-24 justify-center max-[760px]:w-12">
+              <div className="relative z-2 flex w-24 justify-center tablet:w-12">
                 <span className="grid size-12 place-items-center rounded-full border border-ink bg-paper text-[10px] font-black">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
               <div
-                className={`grid min-h-[360px] overflow-hidden rounded-[26px] border border-ink bg-white transition-transform duration-[350ms] hover:translate-x-1.5 hover:[&_img]:scale-[1.035] max-[760px]:grid-cols-1 ${index % 2 === 1 ? "grid-cols-[1.1fr_.9fr] [&_.timeline-image]:order-2 max-[760px]:[&_.timeline-image]:order-0" : "grid-cols-[.9fr_1.1fr]"}`}
+                className={`grid min-h-[360px] overflow-hidden rounded-[26px] border border-ink bg-white transition-transform duration-[350ms] hover:translate-x-1.5 hover:[&_img]:scale-[1.035] tablet:grid-cols-1 ${index % 2 === 1 ? "grid-cols-[1.1fr_.9fr] [&_.timeline-image]:order-2 tablet:[&_.timeline-image]:order-0" : "grid-cols-[.9fr_1.1fr]"}`}
               >
-                <div className="timeline-image relative overflow-hidden max-[760px]:h-[260px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[650ms]">
+                <div className="timeline-image relative overflow-hidden tablet:h-[260px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[650ms]">
                   <SiteImage
                     alt={event.imageAlt}
                     sizes="(max-width: 760px) 100vw, 45vw"
@@ -96,7 +96,7 @@ export function EventArchive() {
             </article>
           ))
         ) : (
-          <p className="mb-12 ml-[124px] rounded-2xl border border-ink bg-white p-[34px] text-muted max-[760px]:ml-[62px]">
+          <p className="mb-12 ml-[124px] rounded-2xl border border-ink bg-white p-[34px] text-muted tablet:ml-[62px]">
             No present or ongoing events are documented at this time. Explore
             the past archive or see what is coming next.
           </p>
@@ -124,16 +124,16 @@ function EventDetail({ event }: { event: SiteEvent }) {
           src={event.image}
         />
       </div>
-      <div className="p-[42px] max-[760px]:p-7">
+      <div className="p-[42px] tablet:p-7">
         <div className="flex justify-between gap-5 border-b border-ink pb-[14px] text-[10px] tracking-[.08em] uppercase">
           <span>{event.project}</span>
           <span>{event.status}</span>
         </div>
-        <h2 className="my-8 mb-5 font-display text-[clamp(42px,5vw,68px)] leading-[.98] font-normal">
+        <h2 className="my-8 mb-5 display-2">
           {event.title}
         </h2>
         <p className="text-[18px] text-[#575057]">{event.description}</p>
-        <div className="my-[30px] grid grid-cols-2 gap-2 max-[760px]:grid-cols-1 [&>div]:min-h-[104px] [&>div]:rounded-[12px] [&>div]:border [&>div]:border-ink [&>div]:bg-white [&>div]:p-[18px] [&_strong]:mb-2 [&_strong]:block [&_strong]:font-display [&_strong]:text-[28px] [&_strong]:leading-none [&_strong]:font-normal [&_span]:block [&_span]:text-[11px] [&_span]:text-muted">
+        <div className="my-[30px] grid grid-cols-2 gap-2 tablet:grid-cols-1 [&>div]:min-h-[104px] [&>div]:rounded-[12px] [&>div]:border [&>div]:border-ink [&>div]:bg-white [&>div]:p-[18px] [&_strong]:mb-2 [&_strong]:block [&_strong]:font-display [&_strong]:text-[28px] [&_strong]:leading-none [&_strong]:font-normal [&_span]:block [&_span]:text-[11px] [&_span]:text-muted">
           {event.impact.map((item) => (
             <div key={`${item.value}-${item.label}`}>
               <strong>{item.value}</strong>

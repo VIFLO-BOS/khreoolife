@@ -32,7 +32,7 @@ export function ProjectArchive() {
 
   return (
     <>
-      <div className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-[26px] flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-paper/94 px-[15px] py-[13px] backdrop-blur-[16px] max-[760px]:relative max-[760px]:top-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:rounded-[20px]">
+      <div className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-[26px] flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-paper/94 px-[15px] py-[13px] backdrop-blur-[16px] tablet:relative tablet:top-auto tablet:flex-col tablet:items-start tablet:rounded-[20px]">
         <div className="flex flex-wrap gap-[6px]" aria-label="Filter projects">
           {filters.map((filter) => (
             <button
@@ -53,24 +53,24 @@ export function ProjectArchive() {
       </div>
 
       <div
-        className={`grid grid-cols-12 auto-rows-[118px] gap-3 max-[1050px]:grid-cols-1 max-[1050px]:auto-rows-auto ${activeFilter === "all" ? "" : "grid-cols-1 auto-rows-auto"}`}
+        className={`grid grid-cols-12 auto-rows-[118px] gap-3 laptop:grid-cols-1 laptop:auto-rows-auto ${activeFilter === "all" ? "" : "grid-cols-1 auto-rows-auto"}`}
       >
         {visibleProjects.map((project, index) => (
           <article
             key={project.id}
             className={[
-              "relative min-h-[480px] overflow-hidden rounded-[28px] border border-ink bg-[#ddd] hover:[&_img]:scale-[1.045] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[800ms] [&_img]:[transition-timing-function:cubic-bezier(.2,.75,.2,1)] max-[1050px]:min-h-[520px] max-[760px]:min-h-[470px]",
+              "relative min-h-[480px] overflow-hidden rounded-[28px] border border-ink bg-[#ddd] hover:[&_img]:scale-[1.045] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-[800ms] [&_img]:[transition-timing-function:cubic-bezier(.2,.75,.2,1)] laptop:min-h-[520px] tablet:min-h-[470px]",
               project.id === "iloba"
-                ? "col-[1/8] row-[1/6] max-[1050px]:col-auto max-[1050px]:row-auto"
+                ? "col-[1/8] row-[1/6] laptop:col-auto laptop:row-auto"
                 : "",
               project.id === "uni"
-                ? "col-[8/13] row-[1/5] max-[1050px]:col-auto max-[1050px]:row-auto"
+                ? "col-[8/13] row-[1/5] laptop:col-auto laptop:row-auto"
                 : "",
               project.id === "love"
-                ? "col-[1/6] row-[6/10] max-[1050px]:col-auto max-[1050px]:row-auto"
+                ? "col-[1/6] row-[6/10] laptop:col-auto laptop:row-auto"
                 : "",
               project.id === "ibadan"
-                ? "col-[6/13] row-[5/10] max-[1050px]:col-auto max-[1050px]:row-auto"
+                ? "col-[6/13] row-[5/10] laptop:col-auto laptop:row-auto"
                 : "",
             ]
               .filter(Boolean)
@@ -132,16 +132,16 @@ function ProjectDetail({ project }: { project: Project }) {
           src={project.image}
         />
       </div>
-      <div className="p-[42px] max-[760px]:p-7">
+      <div className="p-[42px] tablet:p-7">
         <div className="flex justify-between gap-5 border-b border-ink pb-[14px] text-[10px] tracking-[.08em] uppercase">
           <span>{project.pillar}</span>
           <span>{project.status}</span>
         </div>
-        <h2 className="my-8 mb-5 font-display text-[clamp(42px,5vw,68px)] leading-[.98] font-normal">
+        <h2 className="my-8 mb-5 display-2">
           {project.title}
         </h2>
         <p className="text-[18px] text-[#575057]">{project.story}</p>
-        <div className="my-[30px] grid grid-cols-2 gap-2 max-[760px]:grid-cols-1 [&>div]:min-h-[104px] [&>div]:rounded-[12px] [&>div]:border [&>div]:border-ink [&>div]:bg-white [&>div]:p-[18px] [&_strong]:mb-2 [&_strong]:block [&_strong]:font-display [&_strong]:text-[28px] [&_strong]:leading-none [&_strong]:font-normal [&_span]:block [&_span]:text-[11px] [&_span]:text-muted">
+        <div className="my-[30px] grid grid-cols-2 gap-2 tablet:grid-cols-1 [&>div]:min-h-[104px] [&>div]:rounded-[12px] [&>div]:border [&>div]:border-ink [&>div]:bg-white [&>div]:p-[18px] [&_strong]:mb-2 [&_strong]:block [&_strong]:font-display [&_strong]:text-[28px] [&_strong]:leading-none [&_strong]:font-normal [&_span]:block [&_span]:text-[11px] [&_span]:text-muted">
           {project.impact.map((item) => (
             <div key={`${item.value}-${item.label}`}>
               <strong>{item.value}</strong>
@@ -149,8 +149,8 @@ function ProjectDetail({ project }: { project: Project }) {
             </div>
           ))}
         </div>
-        <div className="mt-7 border-t border-ink pt-[22px] [&_.eyebrow]:mb-[14px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-['']">
-          <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Linked event</p>
+        <div className="mt-7 border-t border-ink pt-[22px]">
+          <p className="eyebrow">Linked event</p>
           <p>{project.event}</p>
         </div>
         <div className="mt-[30px] flex flex-wrap gap-2">

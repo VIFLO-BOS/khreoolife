@@ -289,13 +289,13 @@ export function SiteHeader() {
       className={headerClassName}
       onMouseLeave={() => setActiveMenu(null)}
     >
-      <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] flex h-[var(--nav-height)] items-center gap-[30px]">
+      <div className="container-page flex h-[var(--nav-height)] items-center gap-[30px]">
         <Link href="/" className="mr-auto" aria-label="Khreeolife home">
           <BrandLogo />
         </Link>
 
         <nav
-          className="hidden items-center gap-[26px] text-[11px] font-bold min-[1051px]:flex"
+          className="hidden items-center gap-[26px] text-[11px] font-bold desktop:flex"
           aria-label="Primary navigation"
         >
           <Link
@@ -343,7 +343,7 @@ export function SiteHeader() {
 
         <Link
           href="/donate"
-          className="hidden items-center gap-1.5 text-white min-[1051px]:inline-flex [&>span]:grid [&>span]:h-[42px] [&>span]:place-items-center [&>span]:rounded-full [&>span]:px-5 [&>span]:text-[11px] [&>span]:font-black [&>span]:transition-colors [&>span]:duration-300 [&>svg]:box-content [&>svg]:grid [&>svg]:size-[42px] [&>svg]:place-items-center [&>svg]:rounded-full [&>svg]:transition-[background,color,transform] [&>svg]:duration-300 hover:[&>span]:bg-brand-dark hover:[&>span]:text-white hover:[&>svg]:rotate-45 hover:[&>svg]:bg-brand-dark hover:[&>svg]:text-white"
+          className="hidden items-center gap-1.5 text-white desktop:inline-flex [&>span]:grid [&>span]:h-[42px] [&>span]:place-items-center [&>span]:rounded-full [&>span]:px-5 [&>span]:text-[11px] [&>span]:font-black [&>span]:transition-colors [&>span]:duration-300 [&>svg]:box-content [&>svg]:grid [&>svg]:size-[42px] [&>svg]:place-items-center [&>svg]:rounded-full [&>svg]:transition-[background,color,transform] [&>svg]:duration-300 hover:[&>span]:bg-brand-dark hover:[&>span]:text-white hover:[&>svg]:rotate-45 hover:[&>svg]:bg-brand-dark hover:[&>svg]:text-white"
           style={{
             color: isLightNavigation ? "var(--white)" : "var(--ink)",
           }}
@@ -364,7 +364,7 @@ export function SiteHeader() {
         <button
           ref={mobileToggleRef}
           type="button"
-          className="hidden size-[42px] cursor-pointer place-items-center rounded-full border border-current bg-transparent max-[1050px]:grid"
+          className="hidden size-[42px] cursor-pointer place-items-center rounded-full border border-current bg-transparent laptop:grid"
           aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
@@ -389,7 +389,7 @@ export function SiteHeader() {
             transition={{ duration: 0.22 }}
             onMouseEnter={() => setActiveMenu(activeNavigationMenu.key)}
           >
-            <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] pt-[34px] pb-[38px]">
+            <div className="container-page pt-[34px] pb-[38px]">
               <div className="mb-[25px] flex items-end justify-between gap-[30px] border-b border-ink/14 pb-[19px]">
                 <strong className="text-[12px] tracking-[0.1em] uppercase">
                   {activeNavigationMenu.label}
@@ -403,7 +403,7 @@ export function SiteHeader() {
                   <ArrowRight aria-hidden="true" size={14} />
                 </Link>
               </div>
-              <div className="grid grid-cols-2 gap-x-[34px] gap-y-[18px]">
+              <div className="grid grid-cols-2 gap-x-[34px] gap-y-[18px] tablet:grid-cols-1 tablet:gap-y-1">
                 {activeNavigationMenu.items.map((item) => {
                   const Icon = item.icon;
 
@@ -411,11 +411,11 @@ export function SiteHeader() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="grid grid-cols-[82px_minmax(0,1fr)] items-center gap-[18px] rounded-[12px] px-2 py-2.5 transition-colors duration-200 hover:bg-brand/8"
+                      className="group grid grid-cols-[82px_minmax(0,1fr)] items-center gap-[18px] rounded-[12px] px-2 py-2.5 transition-colors duration-(--duration-panel) hover:bg-brand/8 tablet:grid-cols-[64px_minmax(0,1fr)] tablet:gap-3"
                       onClick={closeNavigation}
                     >
                       <span
-                        className="grid size-[74px] h-16 place-items-center rounded-[10px] border border-[#d9cfdd] bg-[#fbf7f0] p-[13px] text-brand"
+                        className="grid size-[74px] h-16 place-items-center rounded-[10px] border border-[#d9cfdd] bg-[#fbf7f0] p-[13px] text-brand transition-colors duration-(--duration-panel) group-hover:border-[#bda7c9] group-hover:bg-[#f1e7f5] group-hover:text-brand-dark tablet:size-16 tablet:h-14"
                         aria-hidden="true"
                       >
                         <Icon size={32} strokeWidth={1.45} />
@@ -449,7 +449,7 @@ export function SiteHeader() {
             exit={prefersReducedMotion ? undefined : { opacity: 0, y: -10 }}
             transition={{ duration: 0.22 }}
           >
-            <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
+            <div className="container-page">
               {mobileLinks.map((link) => (
                 <Link
                   key={link.href}

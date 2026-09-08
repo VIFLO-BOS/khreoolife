@@ -23,7 +23,7 @@ interface BrandLogoProps {
 export function BrandLogo({ className = "" }: BrandLogoProps) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 text-[27px] leading-none font-black max-[760px]:text-[21px] ${className}`.trim()}
+      className={`inline-flex items-center gap-2.5 text-[27px] leading-none font-black tablet:text-[21px] ${className}`.trim()}
     >
       <BrandMark />
       <span>Khreeolife</span>

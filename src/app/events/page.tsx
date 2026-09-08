@@ -47,12 +47,12 @@ export default function EventsPage() {
         }
       />
 
-      <section className="bg-cream py-[120px] max-[760px]:py-[80px]">
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
+      <section className="bg-cream py-[120px] tablet:py-[80px]">
+        <div className="container-page">
           <Reveal className="rich-intro-grid">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Event Archive</p>
-              <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">A living timeline of the work.</h2>
+              <p className="eyebrow">Event Archive</p>
+              <h2 className="display-2">A living timeline of the work.</h2>
             </div>
             <div className="rich-intro-copy">
               <p>
@@ -65,9 +65,9 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-brand py-[140px] text-white max-[760px]:py-[90px]">
-        <Reveal className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] grid grid-cols-[1fr_.6fr] items-center gap-[70px] max-[1050px]:grid-cols-1 max-[1050px]:gap-10 [&_.big-quote]:text-[clamp(44px,6vw,92px)] [&_.big-quote]:leading-[.98] [&_.sticker]:mb-8 [&_.sticker]:border-white/30 [&>div:last-child>p]:mb-10 [&>div:last-child>p]:max-w-[380px] [&>div:last-child>p]:text-[20px] [&>div:last-child>p]:leading-[1.4] [&>div:last-child>p]:text-white/80">
-          <div className="big-quote font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+      <section className="bg-brand py-[140px] text-white tablet:py-[90px]">
+        <Reveal className="container-page grid grid-cols-[1fr_.6fr] items-center gap-[70px] laptop:grid-cols-1 laptop:gap-10 [&_.big-quote]:text-[clamp(44px,6vw,92px)] [&_.big-quote]:leading-[.98] [&_.sticker]:mb-8 [&_.sticker]:border-white/30 [&>div:last-child>p]:mb-10 [&>div:last-child>p]:max-w-[380px] [&>div:last-child>p]:text-[20px] [&>div:last-child>p]:leading-[1.4] [&>div:last-child>p]:text-white/80">
+          <div className="big-quote display-2">
             &quot;Words and actions.&quot;
           </div>
           <div>

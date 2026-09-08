@@ -7,7 +7,11 @@
    override, inherited from the original hand-written CSS. These
    variants give those widths names, so markup reads
 
-       tablet:grid-cols-1        instead of   max-[760px]:grid-cols-1
+       tablet:grid-cols-1     instead of the old arbitrary max-[...px] form
+
+   (Written without a literal example on purpose: Tailwind scans this
+   stylesheet for class candidates too, so spelling one out here would
+   generate a real rule for a class nothing uses.)
 
    Why @custom-variant and not Tailwind's `--breakpoint-*` tokens:
    `--breakpoint-*` also generates `max-*` variants, but it renders them
@@ -151,60 +155,71 @@
     --text-lede: var(--type-lede);
 }
 
-* {
-    box-sizing: border-box;
-}
+/* Element defaults live in @layer base so that any Tailwind utility in
+   the markup can override them. Left unlayered (as they were), they beat
+   every utility regardless of specificity -- which is how 89 leading-*
+   classes ended up doing nothing. See AGENTS.md section 1.3a. */
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
 
-html {
-    scroll-behavior: smooth;
-}
+    html {
+        scroll-behavior: smooth;
+    }
 
-body {
-    margin: 0;
-    overflow-x: hidden;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--ui-font);
-    line-height: 1.45;
-}
+    body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--ui-font);
+        line-height: 1.45;
+    }
 
-body.menu-lock {
-    overflow: hidden;
-}
+    body.menu-lock {
+        overflow: hidden;
+    }
 
-body.drawer-open {
-    overflow: hidden;
-}
+    body.drawer-open {
+        overflow: hidden;
+    }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
 
-button {
-    color: inherit;
-}
+    button {
+        color: inherit;
+    }
 
-img {
-    display: block;
-    max-width: 100%;
-}
+    img {
+        display: block;
+        max-width: 100%;
+    }
 
-::selection {
-    background: var(--yellow);
-    color: var(--ink);
-}
+    ::selection {
+        background: var(--yellow);
+        color: var(--ink);
+    }
 
-:focus-visible {
-    outline: 3px solid var(--brand);
-    outline-offset: 3px;
+    :focus-visible {
+        outline: 3px solid var(--brand);
+        outline-offset: 3px;
+    }
+
+    h3 {
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+    }
 }
 
 /* ============================================================
@@ -421,23 +436,23 @@ img {
     }
 }
 
-/* Premium typography — match reference .display class.
-   NOTE: this rule is UNLAYERED, so it beats every layered Tailwind
-   utility regardless of specificity. That is why 89 leading-* classes
-   in the markup currently do nothing: any element with `font-display`
-   is forced to line-height .94.
+/* Display-face defaults, now inside @layer components.
 
-   It is deliberately left in place for now so Step 2 stays inert.
-   Step 3 removes it per-file as each component swaps
-   `font-display ... leading-[...]` for a .display-* class. */
-.font-display {
-    letter-spacing: -0.055em;
-    line-height: 0.94;
-}
+   Previously unlayered, which made it beat every Tailwind utility and
+   silently forced line-height .94 on all 60 elements using
+   `font-display` -- killing 39 leading-* classes in the markup.
 
-h3 {
-    letter-spacing: -0.035em;
-    line-height: 1.08;
+   In the components layer the balance is right:
+     - an element with `font-display leading-[1.1]`  -> gets 1.1 (utility wins)
+     - an element with `font-display` and no leading -> still gets .94
+
+   Headings that carry a .display-* class do not depend on this at all;
+   those classes set family, size, leading and tracking together. */
+@layer components {
+    .font-display {
+        letter-spacing: -0.055em;
+        line-height: 0.94;
+    }
 }
 
 @media (max-width: 760px) {
@@ -500,82 +515,128 @@ h3 {
     }
 }
 
-/* Event card motion system */
-.event-motion-card {
-    min-height: 480px;
-    flex: 0 0 clamp(320px, 29vw, 390px);
-    overflow: hidden;
-    border: 1px solid var(--ink);
-    border-radius: var(--radius);
-    background: var(--white);
-    color: var(--ink);
-    transform-origin: center bottom;
-    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
-}
 
-.event-motion-card:not(.active) {
-    opacity: 0.67;
-    transform: translateY(28px) scale(0.95);
-}
+/* ============================================================
+   MODAL / OVERLAY
+   ============================================================ */
+@layer components {
+    .article-modal {
+        z-index: 190;
+    }
 
-.event-motion-card.active {
-    box-shadow: 0 22px 52px rgb(18 17 19 / 12%);
-}
-
-.event-motion-card:hover {
-    opacity: 1;
-    transform: translateY(-7px) scale(1);
-}
-
-.event-motion-card:hover .event-card-media img {
-    transform: scale(1.035);
-}
-
-/* Progress bar animation - controlled by JS */
-.pillar-progress {
-    position: relative;
-    height: 3px;
-    flex: 1;
-    overflow: hidden;
-    padding: 0;
-    border: 0;
-    background: #c8c0b6;
-    cursor: pointer;
-}
-
-.pillar-progress.active .pillar-progress-fill {
-    animation: pillar-progress-load 5.2s linear forwards;
-}
-
-/* Article modal backdrop */
-.article-modal {
-    z-index: 190;
-}
-
-.article-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 189;
-    border: 0;
-    background: rgb(18 17 19 / 55%);
-    cursor: pointer;
-}
-
-/* Reduced motion */
-@media (max-width: 900px) {
-    .event-motion-card {
-        min-height: 450px;
-        flex-basis: min(330px, 78vw);
+    .article-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 189;
+        border: 0;
+        background: rgb(18 17 19 / 55%);
+        cursor: pointer;
     }
 }
 
-@media (max-width: 760px) {
-    .event-motion-card {
-        min-height: 430px;
-        flex-basis: 82vw;
+/* ============================================================
+   BUTTONS
+
+   In @layer components so a utility in the markup can still adjust a
+   single button without !important.
+
+   Two fixes against the reference here:
+
+   1. .btn-dark no longer shares a background with .btn-brand. The old
+      rule grouped them and forced BOTH to var(--brand), so a "dark"
+      button rendered purple and was indistinguishable from a brand
+      button. The reference has .btn-dark on var(--ink).
+
+   2. The hover no longer animates border-color. The reference changes
+      background and colour only; animating the border as well made the
+      outline weight visibly shift mid-hover.
+
+   The yellow wash (a background-image slid on hover, rather than a
+   background-color swap) is the reference's own interaction and is
+   kept as-is.
+   ============================================================ */
+@layer components {
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 46px;
+        padding: 0 23px;
+        border-radius: 999px;
+        position: relative;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        cursor: pointer;
+        transition:
+            color var(--motion-hover) ease,
+            border-color var(--motion-hover) ease,
+            background-color var(--motion-hover) ease,
+            box-shadow var(--motion-hover) ease;
+    }
+
+    /* Shared yellow-wash mechanics for the two solid buttons. */
+    .btn-brand,
+    .btn-dark {
+        color: #fff;
+        background-image: linear-gradient(
+            90deg,
+            transparent 0 49.9%,
+            var(--yellow) 50% 100%
+        );
+        background-size: 200% 100%;
+        background-position: 0 0;
+        transition:
+            background-position 0.36s var(--motion-ease-brand),
+            color var(--motion-hover) ease,
+            border-color var(--motion-hover) ease;
+    }
+
+    .btn-brand {
+        background-color: var(--brand);
+        border: 1px solid var(--brand);
+    }
+
+    .btn-dark {
+        background-color: var(--ink);
+        border: 1px solid var(--ink);
+    }
+
+    .btn-brand:hover,
+    .btn-dark:hover {
+        background-position: -100% 0;
+        color: #111;
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+    }
+
+    .btn-outline:hover {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+    }
+
+    .btn-light {
+        background-color: var(--white);
+        border: 1px solid var(--white);
+        color: var(--ink);
+    }
+
+    .btn-light:hover {
+        background: var(--yellow);
+        color: #111;
     }
 }
 
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -586,63 +647,4 @@ h3 {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
-
-    .event-motion-card,
-    .event-motion-card:not(.active) {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-/* Premium Button Interactions */
-.btn {
-    min-height: 46px;
-    padding: 0 23px;
-    border-radius: 999px;
-    position: relative;
-    overflow: hidden;
-    transform: none !important;
-    transition: color .3s ease, border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
-    letter-spacing: .01em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 900;
-    cursor: pointer;
-}
-.btn-brand, .btn-dark {
-    background-color: var(--brand);
-    color: white;
-    border: 1px solid var(--brand);
-    background-image: linear-gradient(90deg, transparent 0 49.9%, var(--yellow) 50% 100%);
-    background-size: 200% 100%;
-    background-position: 0 0;
-    transition: background-position .36s cubic-bezier(.2,.8,.2,1), color .3s ease, border-color .3s ease;
-}
-.btn-brand:hover, .btn-dark:hover {
-    background-position: -100% 0;
-    color: #111;
-    border-color: var(--yellow);
-}
-.btn-outline {
-    background-color: transparent;
-    border: 1px solid var(--ink);
-    color: var(--ink);
-}
-.btn-outline:hover {
-    background: var(--brand);
-    border-color: var(--brand);
-    color: #fff;
-}
-.btn-light {
-    background-color: var(--white);
-    border: 1px solid var(--white);
-    color: #121113;
-}
-.btn-light:hover {
-    background: var(--yellow);
-    border-color: var(--yellow);
-    color: #111;
 }

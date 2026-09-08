@@ -26,17 +26,17 @@ export function PillarRotator() {
 
   return (
     <section
-      className="bg-paper py-[58px] pb-[108px] max-[760px]:pt-11 max-[760px]:pb-[76px]"
+      className="bg-paper py-[58px] pb-[108px] tablet:pt-11 tablet:pb-[76px]"
       aria-labelledby="pillar-overview-title"
     >
-      <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
+      <div className="container-page">
         <div className="h-px bg-ink" />
-        <div className="grid min-h-[580px] grid-cols-[.38fr_.62fr] border-b border-ink max-[1050px]:grid-cols-1">
-          <div className="flex flex-col border-r border-ink pt-[42px] pr-[54px] pb-[38px] max-[1050px]:border-r-0 max-[1050px]:border-b max-[1050px]:pr-0 max-[760px]:pt-[34px] max-[760px]:pb-8">
-            <p className="flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+        <div className="grid min-h-[580px] grid-cols-[.38fr_.62fr] border-b border-ink laptop:grid-cols-1">
+          <div className="flex flex-col border-r border-ink pt-[42px] pr-[54px] pb-[38px] laptop:border-r-0 laptop:border-b laptop:pr-0 tablet:pt-[34px] tablet:pb-8">
+            <p className="eyebrow mb-0">
               What we do
             </p>
-            <h2 className="my-[14px] mb-[18px] font-display text-[clamp(40px,4.2vw,66px)] leading-[.98] font-normal max-[760px]:text-[42px]">
+            <h2 className="my-[14px] mb-[18px] display-2 text-[clamp(40px,4.2vw,66px)] tablet:text-[42px]">
               {activePillar.heading}
             </h2>
             <p className="max-w-[390px] text-[15px] text-[#625b63]">
@@ -77,45 +77,45 @@ export function PillarRotator() {
             </div>
 
             <div
-              className="mt-auto grid grid-cols-4 gap-2 pt-[34px] max-w-[520px] max-[1050px]:mt-[34px] max-[430px]:gap-[5px]"
+              className="mt-auto grid grid-cols-4 gap-2 pt-[34px] mobile:grid-cols-2 mobile:gap-3 max-w-[520px] laptop:mt-[34px] phone-lg:gap-[5px]"
               aria-label="Khreeolife overview"
             >
-              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center max-[430px]:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
+              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center phone-lg:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
                 <strong>4</strong>
                 <span>Projects</span>
               </div>
-              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center max-[430px]:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
+              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center phone-lg:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
                 <strong>3</strong>
                 <span>Pillars</span>
               </div>
-              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center max-[430px]:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
+              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center phone-lg:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
                 <strong>20</strong>
                 <span>Students</span>
               </div>
-              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center max-[430px]:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
+              <div className="grid min-w-0 aspect-square place-items-center rounded-full border border-ink p-[10px] text-center phone-lg:p-[5px] [&>strong]:block [&>strong]:font-display [&>strong]:text-[25px] [&>strong]:leading-none [&>strong]:font-normal [&>span]:block [&>span]:text-[8px] [&>span]:leading-[1.1] [&>span]:font-extrabold [&>span]:tracking-[.07em] [&>span]:text-[#6d666d] [&>span]:uppercase">
                 <strong>1</strong>
                 <span>Mission</span>
               </div>
             </div>
           </div>
 
-          <div className="min-w-0 pt-[34px] pl-[54px] max-[1050px]:pt-[42px] max-[1050px]:pl-0">
+          <div className="min-w-0 pt-[34px] pl-[54px] laptop:pt-[42px] laptop:pl-0">
             <h2
               id="pillar-overview-title"
-              className="mb-[42px] font-display text-[clamp(28px,3vw,42px)] leading-[.98] font-normal max-[760px]:mb-[27px]"
+              className="mb-[42px] display-2 text-[clamp(28px,3vw,42px)] tablet:mb-[27px]"
             >
               Three Pillar Overviews
             </h2>
-            <div className="flex h-[410px] w-full items-start justify-end gap-6 pl-[18px] max-[1180px]:h-[370px] max-[1180px]:gap-[18px] max-[760px]:h-[310px] max-[760px]:gap-2.5 max-[760px]:pl-0 max-[430px]:h-[250px] max-[430px]:gap-[7px]">
+            <div className="flex h-[410px] w-full items-start justify-end gap-6 pl-[18px] laptop-lg:h-[370px] laptop-lg:gap-[18px] tablet:h-[310px] tablet:gap-2.5 tablet:pl-0 phone-lg:h-[250px] phone-lg:gap-[7px]">
               {activePillar.images.map((image, index) => (
                 <figure
                   key={index}
                   className={
                     index === 0
-                      ? "relative mt-[122px] w-[22%] shrink-0 max-[1180px]:mt-[108px] max-[760px]:mt-[92px] max-[760px]:w-[24%] max-[430px]:mt-[74px]"
+                      ? "relative mt-[122px] w-[22%] shrink-0 laptop-lg:mt-[108px] tablet:mt-[92px] tablet:w-[24%] phone-lg:mt-[74px]"
                       : index === 1
-                        ? "relative mt-[67px] w-[29%] shrink-0 max-[1180px]:mt-[58px] max-[760px]:mt-[48px] max-[760px]:w-[31%] max-[430px]:mt-[39px]"
-                        : "relative mt-4 w-[37%] shrink-0 max-[760px]:mt-2 max-[760px]:w-[39%] max-[430px]:mt-[5px]"
+                        ? "relative mt-[67px] w-[29%] shrink-0 laptop-lg:mt-[58px] tablet:mt-[48px] tablet:w-[31%] phone-lg:mt-[39px]"
+                        : "relative mt-4 w-[37%] shrink-0 tablet:mt-2 tablet:w-[39%] phone-lg:mt-[5px]"
                   }
                 >
                   <AnimatePresence mode="wait" initial={false}>

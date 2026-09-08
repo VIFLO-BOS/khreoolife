@@ -5,8 +5,8 @@ import { BrandLogo } from "@/components/logo";
 export function SiteFooter() {
   return (
     <footer className="bg-ink-deep pt-[72px] pb-[26px] text-white">
-      <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-        <div className="grid grid-cols-[1.45fr_repeat(3,1fr)] gap-[54px] max-[1050px]:grid-cols-2 max-[760px]:grid-cols-1">
+      <div className="container-page">
+        <div className="grid grid-cols-[1.45fr_repeat(3,1fr)] gap-[54px] laptop:grid-cols-2 tablet:grid-cols-1">
           <div>
             <Link
               href="/"
@@ -107,7 +107,7 @@ export function SiteFooter() {
             </a>
           </div>
         </div>
-        <div className="mt-[45px] flex justify-between gap-5 border-t border-white/14 pt-[19px] text-[10px] text-white/42 max-[760px]:grid">
+        <div className="mt-[45px] flex justify-between gap-5 border-t border-white/14 pt-[19px] text-[10px] text-white/42 tablet:grid">
           <span>
             © 2026 Khreeolife — The Ordained Life. All Rights Reserved.
           </span>

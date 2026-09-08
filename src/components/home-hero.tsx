@@ -50,14 +50,14 @@ export function HomeHero() {
         </p>
         <h1
           id="home-title"
-          className="mx-auto mb-7.5 max-w-209.5 font-display text-[clamp(46px,4.75vw,72px)] leading-[1.02] tracking-[-.048em] font-normal [text-shadow:0_2px_28px_rgba(0,0,0,0.38)]"
+          className="mx-auto mb-7.5 max-w-209.5 font-display text-[clamp(46px,4.75vw,72px)] leading-[1.02] tiny:text-[39px] tracking-[-.048em] font-normal [text-shadow:0_2px_28px_rgba(0,0,0,0.38)]"
         >
           Transforming people and communities through{" "}
           <span className="relative inline-block after:absolute after:right-0 after:bottom-2 after:left-[2%] after:h-2.75 after:rotate-1 after:rounded-[50%] after:border-b-4 after:border-yellow after:content-['']">
             the love of God.
           </span>
         </h1>
-        <p className="mx-auto max-w-152.5 font-display text-[clamp(16px,1.25vw,19px)] text-white/91 [text-shadow:0_2px_14px_rgba(0,0,0,0.35)]">
+        <p className="mx-auto max-w-152.5 font-display text-[clamp(16px,1.25vw,19px)] tiny:text-[15px] text-white/91 [text-shadow:0_2px_14px_rgba(0,0,0,0.35)]">
           In words and in deeds through Community Development, Education and
           Christian Missions.
         </p>

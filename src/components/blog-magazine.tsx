@@ -93,11 +93,11 @@ export function BlogMagazine() {
 
   return (
     <main>
-      <section className="border-b border-ink/10 bg-cream pt-[140px] pb-[80px] max-[760px]:pt-[110px] max-[760px]:pb-12">
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] mb-[70px] grid grid-cols-[1.1fr_.9fr] items-end gap-10 max-[1050px]:grid-cols-1 max-[760px]:mb-10 max-[760px]:gap-6">
+      <section className="border-b border-ink/10 bg-cream pt-[140px] pb-[80px] tablet:pt-[110px] tablet:pb-12">
+        <div className="container-page mb-[70px] grid grid-cols-[1.1fr_.9fr] items-end gap-10 laptop:grid-cols-1 tablet:mb-10 tablet:gap-6">
           <Reveal className="[&_h1]:mt-5">
-            <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Blog / Magazine</p>
-            <h1 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+            <p className="eyebrow">Blog / Magazine</p>
+            <h1 className="display-2">
               Stories from the work.
               <br />
               Reflections from the life.
@@ -129,9 +129,9 @@ export function BlogMagazine() {
       </section>
 
       {featuredArticle ? (
-        <section className="bg-white py-[120px] max-[760px]:py-[80px]">
-          <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-            <Reveal className="grid grid-cols-[1.1fr_.9fr] gap-6 rounded-[32px] border border-ink p-3 pr-[50px] max-[1050px]:grid-cols-1 max-[1050px]:pr-3 max-[1050px]:pb-[50px]">
+        <section className="bg-white py-[120px] tablet:py-[80px]">
+          <div className="container-page">
+            <Reveal className="grid grid-cols-[1.1fr_.9fr] gap-6 rounded-[32px] border border-ink p-3 pr-[50px] laptop:grid-cols-1 laptop:pr-3 laptop:pb-[50px]">
               <div className="relative min-h-[460px] overflow-hidden rounded-[22px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
                 {featuredArticle.image && featuredArticle.imageAlt ? (
                   <SiteImage
@@ -141,14 +141,14 @@ export function BlogMagazine() {
                   />
                 ) : null}
               </div>
-              <div className="flex flex-col justify-center py-10 max-[1050px]:px-5 max-[1050px]:py-0 [&>div:first-child]:mb-[26px] [&>div:first-child]:flex [&>div:first-child]:items-center [&>div:first-child]:justify-between [&>div:first-child]:border-b [&>div:first-child]:border-ink/15 [&>div:first-child]:pb-4 [&_.tag]:text-[10px] [&_.tag]:font-black [&_.tag]:tracking-[.08em] [&_.tag]:text-brand [&_.tag]:uppercase [&_.featured-count]:font-display [&_.featured-count]:text-[16px] [&_.featured-count]:italic [&_.featured-count]:text-muted [&_h2]:mb-5 [&_p]:max-w-[480px] [&_p]:text-[17px] [&_p]:text-muted [&_.text-action]:mt-[34px] [&_.text-action]:self-start">
+              <div className="flex flex-col justify-center py-10 laptop:px-5 laptop:py-0 [&>div:first-child]:mb-[26px] [&>div:first-child]:flex [&>div:first-child]:items-center [&>div:first-child]:justify-between [&>div:first-child]:border-b [&>div:first-child]:border-ink/15 [&>div:first-child]:pb-4 [&_.tag]:text-[10px] [&_.tag]:font-black [&_.tag]:tracking-[.08em] [&_.tag]:text-brand [&_.tag]:uppercase [&_.featured-count]:font-display [&_.featured-count]:text-[16px] [&_.featured-count]:italic [&_.featured-count]:text-muted [&_h2]:mb-5 [&_p]:max-w-[480px] [&_p]:text-[17px] [&_p]:text-muted [&_.text-action]:mt-[34px] [&_.text-action]:self-start">
                 <div>
                   <span className="tag">{featuredArticle.label}</span>
                   <span className="featured-count">01</span>
                 </div>
-                <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">{featuredArticle.title}</h2>
+                <h2 className="display-2">{featuredArticle.title}</h2>
                 <p>{featuredArticle.description}</p>
-                <div className="mt-8 flex gap-[26px] text-[11px] font-bold tracking-[.04em] text-ink uppercase max-[400px]:flex-col max-[400px]:gap-3">
+                <div className="mt-8 flex gap-[26px] text-[11px] font-bold tracking-[.04em] text-ink uppercase phone:flex-col phone:gap-3">
                   <span>Khreeolife Editorial</span>
                   <span>Content grows progressively</span>
                 </div>
@@ -168,14 +168,14 @@ export function BlogMagazine() {
       ) : null}
 
       <section
-        className="bg-[#f4f2ee] py-[120px] max-[760px]:py-[80px]"
+        className="bg-[#f4f2ee] py-[120px] tablet:py-[80px]"
         aria-labelledby="magazine-index-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
+        <div className="container-page">
           <h2 id="magazine-index-title" className="sr-only">
             Magazine Index
           </h2>
-          <Reveal className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-10 flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-white/90 px-[15px] py-[13px] backdrop-blur-[16px] max-[760px]:relative max-[760px]:top-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:rounded-[20px]">
+          <Reveal className="sticky top-[calc(var(--nav-height)+10px)] z-20 mb-10 flex items-center justify-between gap-[18px] rounded-full border border-ink/18 bg-white/90 px-[15px] py-[13px] backdrop-blur-[16px] tablet:relative tablet:top-auto tablet:flex-col tablet:items-start tablet:rounded-[20px]">
             <div className="flex flex-wrap gap-[6px]" aria-label="Filter magazine articles">
               {filters.map((filter) => (
                 <button
@@ -191,7 +191,7 @@ export function BlogMagazine() {
             </div>
             <span className="pr-2 text-[10px] font-black tracking-[.08em] text-muted uppercase whitespace-nowrap">Magazine Index</span>
           </Reveal>
-          <div className="grid grid-cols-3 gap-[18px] max-[1050px]:grid-cols-2 max-[760px]:grid-cols-1">
+          <div className="grid grid-cols-3 gap-[18px] laptop:grid-cols-2 tablet:grid-cols-1">
             {visibleArticles.map((article, index) => (
               <article
                 key={article.id}
@@ -224,9 +224,9 @@ export function BlogMagazine() {
         </div>
       </section>
 
-      <section className="bg-white py-[120px] text-center max-[760px]:py-[80px]">
-        <Reveal className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <div className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+      <section className="bg-white py-[120px] text-center tablet:py-[80px]">
+        <Reveal className="container-page">
+          <div className="display-2">
             &quot;Reflecting Jesus Christ&apos;s love through words and
             actions.&quot;
           </div>
@@ -247,7 +247,7 @@ export function BlogMagazine() {
             />
             <motion.article
               ref={articleSheetRef}
-              className="fixed top-4 right-4 bottom-4 z-[195] flex w-full max-w-[620px] flex-col overflow-y-auto rounded-[32px] border border-ink bg-white p-[50px] shadow-[0_24px_64px_rgb(18_17_19_/_15%)] max-[760px]:inset-0 max-[760px]:max-w-none max-[760px]:rounded-none max-[760px]:p-6 max-[760px]:pt-[80px]"
+              className="fixed top-4 right-4 bottom-4 z-[195] flex w-full max-w-[620px] flex-col overflow-y-auto rounded-[32px] border border-ink bg-white p-[50px] shadow-[0_24px_64px_rgb(18_17_19_/_15%)] tablet:inset-0 tablet:max-w-none tablet:rounded-none tablet:p-6 tablet:pt-[80px]"
               role="dialog"
               aria-modal="true"
               aria-label={selectedArticle.title}
@@ -267,14 +267,14 @@ export function BlogMagazine() {
               <button
                 ref={closeButtonRef}
                 type="button"
-                className="absolute top-6 right-6 grid size-[42px] cursor-pointer place-items-center rounded-full border border-ink bg-white transition-[background,color] hover:bg-ink hover:text-white max-[760px]:fixed"
+                className="absolute top-6 right-6 grid size-[42px] cursor-pointer place-items-center rounded-full border border-ink bg-white transition-[background,color] hover:bg-ink hover:text-white tablet:fixed"
                 aria-label="Close article"
                 onClick={closeArticle}
               >
                 <X aria-hidden="true" size={23} />
               </button>
               <div className="mb-6 text-[10px] font-black tracking-[.08em] text-brand uppercase">{selectedArticle.label}</div>
-              <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">{selectedArticle.title}</h2>
+              <h2 className="display-2">{selectedArticle.title}</h2>
               <p className="my-7 border-l-2 border-brand pl-[22px] text-[18px] text-ink">
                 {selectedArticle.description}
               </p>

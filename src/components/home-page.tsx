@@ -19,11 +19,11 @@ export function HomePage() {
       <PillarRotator />
 
       <section
-        className="bg-paper py-[54px] pb-[104px] max-[760px]:pt-[42px] max-[760px]:pb-[82px]"
+        className="bg-paper py-[54px] pb-[104px] tablet:pt-[42px] tablet:pb-[82px]"
         aria-labelledby="campaign-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <Reveal className="flex justify-end border-t border-ink max-[760px]:block [&_h2]:w-[58%] [&_h2]:pt-7 [&_h2]:font-display [&_h2]:text-[clamp(42px,5.2vw,75px)] [&_h2]:leading-[.98] [&_h2]:font-normal max-[760px]:[&_h2]:w-full">
+        <div className="container-page">
+          <Reveal className="flex justify-end border-t border-ink tablet:block [&_h2]:w-[58%] [&_h2]:pt-7 [&_h2]:font-display [&_h2]:text-[clamp(42px,5.2vw,75px)] [&_h2]:leading-[.98] [&_h2]:font-normal tablet:[&_h2]:w-full">
             <h2 id="campaign-title">Our Life Campaign</h2>
           </Reveal>
           <CampaignCards />
@@ -31,17 +31,17 @@ export function HomePage() {
       </section>
 
       <section
-        className="bg-paper py-[58px] pb-[104px] max-[760px]:pt-[46px] max-[760px]:pb-[82px]"
+        className="bg-paper py-[58px] pb-[104px] tablet:pt-[46px] tablet:pb-[82px]"
         aria-labelledby="mission-vision-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <Reveal className="grid grid-cols-[42%_58%] items-center gap-10 mb-[34px] before:block before:h-px before:w-full before:bg-ink before:content-[''] max-[1050px]:grid-cols-1 max-[1050px]:gap-[18px] max-[760px]:block max-[760px]:[&_h2]:mb-[18px] max-[760px]:before:mt-[18px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal max-[1050px]:[&_h2]:order-[-1]">
+        <div className="container-page">
+          <Reveal className="grid grid-cols-[42%_58%] items-center gap-10 mb-[34px] before:block before:h-px before:w-full before:bg-ink before:content-[''] laptop:grid-cols-1 laptop:gap-[18px] tablet:block tablet:[&_h2]:mb-[18px] tablet:before:mt-[18px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal laptop:[&_h2]:order-[-1]">
             <h2 id="mission-vision-title">Mission &amp; Vision</h2>
           </Reveal>
-          <div className="grid min-h-[650px] grid-cols-[.42fr_.58fr] gap-10 max-[1050px]:min-h-0 max-[1050px]:grid-cols-1 max-[760px]:gap-[14px]">
+          <div className="grid min-h-[650px] grid-cols-[.42fr_.58fr] gap-10 laptop:min-h-0 laptop:grid-cols-1 tablet:gap-[14px]">
             <Reveal>
-              <article className="border-b border-ink py-[30px] [&_.eyebrow]:mb-[17px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h3]:mb-3 [&_h3]:max-w-[480px] [&_h3]:font-display [&_h3]:text-[clamp(31px,3.3vw,48px)] [&_h3]:leading-[1.02] [&_h3]:font-normal [&_p:not(.eyebrow)]:max-w-[430px] [&_p:not(.eyebrow)]:text-[15px] [&_p:not(.eyebrow)]:text-[#625b63] [&_.btn]:mt-5 [&_.btn]:opacity-[.45] hover:[&_.btn]:opacity-100 focus-within:[&_.btn]:opacity-100">
-                <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+              <article className="border-b border-ink py-[30px] [&_h3]:mb-3 [&_h3]:max-w-[480px] [&_h3]:font-display [&_h3]:text-[clamp(31px,3.3vw,48px)] [&_h3]:leading-[1.02] [&_h3]:font-normal [&_p:not(.eyebrow)]:max-w-[430px] [&_p:not(.eyebrow)]:text-[15px] [&_p:not(.eyebrow)]:text-[#625b63] [&_.btn]:mt-5 [&_.btn]:opacity-[.45] hover:[&_.btn]:opacity-100 focus-within:[&_.btn]:opacity-100">
+                <p className="eyebrow">
                   Mission
                 </p>
                 <h3>
@@ -56,8 +56,8 @@ export function HomePage() {
                   Our Story ↗
                 </Link>
               </article>
-              <article className="border-b border-ink py-[30px] [&_.eyebrow]:mb-[17px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h3]:mb-3 [&_h3]:max-w-[480px] [&_h3]:font-display [&_h3]:text-[clamp(31px,3.3vw,48px)] [&_h3]:leading-[1.02] [&_h3]:font-normal [&_p:not(.eyebrow)]:max-w-[430px] [&_p:not(.eyebrow)]:text-[15px] [&_p:not(.eyebrow)]:text-[#625b63] [&_.btn]:mt-5 [&_.btn]:opacity-[.45] hover:[&_.btn]:opacity-100 focus-within:[&_.btn]:opacity-100">
-                <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+              <article className="border-b border-ink py-[30px] [&_h3]:mb-3 [&_h3]:max-w-[480px] [&_h3]:font-display [&_h3]:text-[clamp(31px,3.3vw,48px)] [&_h3]:leading-[1.02] [&_h3]:font-normal [&_p:not(.eyebrow)]:max-w-[430px] [&_p:not(.eyebrow)]:text-[15px] [&_p:not(.eyebrow)]:text-[#625b63] [&_.btn]:mt-5 [&_.btn]:opacity-[.45] hover:[&_.btn]:opacity-100 focus-within:[&_.btn]:opacity-100">
+                <p className="eyebrow">
                   Vision
                 </p>
                 <h3>
@@ -74,7 +74,7 @@ export function HomePage() {
                 </Link>
               </article>
             </Reveal>
-            <Reveal className="relative grid min-h-[610px] place-items-center max-[760px]:min-h-[430px]">
+            <Reveal className="relative grid min-h-[610px] place-items-center tablet:min-h-[430px]">
               <div className="relative grid w-[min(520px,90%)] aspect-square place-items-center rounded-full border border-ink">
                 <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-[0_16px_50px_rgb(0_0_0_/_15%)] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:animate-[mission-photo-zoom_9s_ease-in-out_infinite_alternate]">
                   <SiteImage
@@ -84,13 +84,13 @@ export function HomePage() {
                   />
                 </div>
                 <span
-                  className="absolute top-1/2 left-1/2 grid size-[86px] m-[-43px] place-items-center rounded-brand border border-ink bg-yellow font-display text-[30px] animate-[mission-orbit_14s_linear_infinite] max-[760px]:hidden"
+                  className="absolute top-1/2 left-1/2 grid size-[86px] m-[-43px] place-items-center rounded-brand border border-ink bg-yellow font-display text-[30px] animate-[mission-orbit_14s_linear_infinite] tablet:hidden"
                   aria-hidden="true"
                 >
                   ee
                 </span>
               </div>
-              <span className="absolute right-[8%] bottom-[16%] rounded-full bg-brand px-[14px] py-2.5 text-[10px] font-black tracking-[.08em] text-white uppercase max-[760px]:right-[2%] max-[760px]:bottom-[8%]">
+              <span className="absolute right-[8%] bottom-[16%] rounded-full bg-brand px-[14px] py-2.5 text-[10px] font-black tracking-[.08em] text-white uppercase tablet:right-[2%] tablet:bottom-[8%]">
                 A life of faith in action
               </span>
             </Reveal>
@@ -99,18 +99,18 @@ export function HomePage() {
       </section>
 
       <section
-        className="bg-white py-[108px] max-[760px]:py-[76px]"
+        className="bg-white py-[108px] tablet:py-[76px]"
         aria-labelledby="featured-projects-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <Reveal className="mb-[38px] flex items-end justify-between gap-10 max-[760px]:grid max-[760px]:grid-cols-1 max-[760px]:items-start max-[760px]:gap-6 [&_.eyebrow]:mb-[14px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal max-[760px]:[&_h2]:text-[clamp(38px,11vw,52px)] [&>div:last-child]:max-w-[470px] max-[760px]:[&>div:last-child]:max-w-full [&>div:last-child>p]:text-[14px] [&>div:last-child>p]:text-muted [&_.btn]:mt-[21px]">
+        <div className="container-page">
+          <Reveal className="mb-[38px] flex items-end justify-between gap-10 tablet:grid tablet:grid-cols-1 tablet:items-start tablet:gap-6 [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal tablet:[&_h2]:text-[clamp(38px,11vw,52px)] [&>div:last-child]:max-w-[470px] tablet:[&>div:last-child]:max-w-full [&>div:last-child>p]:text-[14px] [&>div:last-child>p]:text-muted [&_.btn]:mt-[21px]">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+              <p className="eyebrow">
                 Featured Projects
               </p>
               <h2
                 id="featured-projects-title"
-                className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal"
+                className="display-2"
               >
                 Documented work.
                 <br />
@@ -127,8 +127,8 @@ export function HomePage() {
               </Link>
             </div>
           </Reveal>
-          <Reveal className="grid grid-cols-[1.15fr_.85fr] gap-3 max-[1050px]:grid-cols-1">
-            <article className="relative min-h-[610px] overflow-hidden rounded-brand border border-ink text-white max-[760px]:min-h-[500px]">
+          <Reveal className="grid grid-cols-[1.15fr_.85fr] gap-3 laptop:grid-cols-1">
+            <article className="relative min-h-[610px] overflow-hidden rounded-brand border border-ink text-white tablet:min-h-[500px]">
               <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02]">
                 <SiteImage
                   alt="Iloba Outreach"
@@ -147,11 +147,11 @@ export function HomePage() {
                 </p>
               </div>
             </article>
-            <div className="grid gap-3 max-[1050px]:grid-cols-3 max-[760px]:grid-cols-1">
+            <div className="grid gap-3 laptop:grid-cols-3 tablet:grid-cols-1">
               {remainingProjects.map((project) => (
                 <article
                   key={project.id}
-                  className="flex min-h-[194px] items-end overflow-hidden rounded-brand border border-ink bg-white p-6 transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-[5px] hover:shadow-[0_18px_42px_rgb(18_17_19_/_10%)] first:bg-cream nth-[2]:bg-soft-purple max-[1050px]:min-h-[220px] max-[760px]:min-h-[180px]"
+                  className="flex min-h-[194px] items-end overflow-hidden rounded-brand border border-ink bg-white p-6 transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-[5px] hover:shadow-[0_18px_42px_rgb(18_17_19_/_10%)] first:bg-cream nth-[2]:bg-soft-purple laptop:min-h-[220px] tablet:min-h-[180px]"
                 >
                   <div>
                     <span
@@ -174,18 +174,18 @@ export function HomePage() {
       <EventsRail />
 
       <section
-        className="bg-white py-[108px] max-[760px]:py-[76px]"
+        className="bg-white py-[108px] tablet:py-[76px]"
         aria-labelledby="stories-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <Reveal className="mb-[38px] flex items-end justify-between gap-10 max-[760px]:grid max-[760px]:grid-cols-1 max-[760px]:items-start max-[760px]:gap-6 [&_.eyebrow]:mb-[14px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal max-[760px]:[&_h2]:text-[clamp(38px,11vw,52px)]">
+        <div className="container-page">
+          <Reveal className="mb-[38px] flex items-end justify-between gap-10 tablet:grid tablet:grid-cols-1 tablet:items-start tablet:gap-6 [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal tablet:[&_h2]:text-[clamp(38px,11vw,52px)]">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+              <p className="eyebrow">
                 Blog / Magazine
               </p>
               <h2
                 id="stories-title"
-                className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal"
+                className="display-2"
               >
                 Stories from
                 <br />
@@ -196,8 +196,8 @@ export function HomePage() {
               Open Magazine ↗
             </Link>
           </Reveal>
-          <Reveal className="grid grid-cols-12 gap-3 max-[760px]:grid-cols-1">
-            <article className="group relative col-[1/7] row-[1/3] min-h-[672px] overflow-hidden rounded-brand border border-ink max-[760px]:col-auto max-[760px]:row-auto max-[760px]:min-h-[520px]">
+          <Reveal className="grid grid-cols-12 gap-3 tablet:grid-cols-1">
+            <article className="group relative col-[1/7] row-[1/3] min-h-[672px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:row-auto tablet:min-h-[520px]">
               <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Young volunteers serving their community in Ghana"
@@ -215,7 +215,7 @@ export function HomePage() {
                 </p>
               </div>
             </article>
-            <article className="group relative col-[7/13] min-h-[330px] overflow-hidden rounded-brand border border-ink max-[760px]:col-auto max-[760px]:min-h-[390px]">
+            <article className="group relative col-[7/13] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
               <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Students participating in class"
@@ -230,7 +230,7 @@ export function HomePage() {
                 <h3>Opportunity starts with exposure</h3>
               </div>
             </article>
-            <article className="group relative col-[7/10] min-h-[330px] overflow-hidden rounded-brand border border-ink max-[760px]:col-auto max-[760px]:min-h-[390px]">
+            <article className="group relative col-[7/10] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
               <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Community education meeting"
@@ -249,7 +249,7 @@ export function HomePage() {
                 </p>
               </div>
             </article>
-            <article className="group relative col-[10/13] min-h-[330px] overflow-hidden rounded-brand border border-ink max-[760px]:col-auto max-[760px]:min-h-[390px]">
+            <article className="group relative col-[10/13] min-h-[330px] overflow-hidden rounded-brand border border-ink tablet:col-auto tablet:min-h-[390px]">
               <div className="absolute inset-0 [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-500 group-hover:[&_img]:scale-[1.025]">
                 <SiteImage
                   alt="Christian worship gathering"
@@ -272,17 +272,17 @@ export function HomePage() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-brand py-[108px] text-white after:absolute after:right-[-60px] after:bottom-[-145px] after:text-[380px] after:font-black after:tracking-[-55px] after:text-white after:opacity-[.055] after:content-['ee'] max-[760px]:py-[76px]"
+        className="relative overflow-hidden bg-brand py-[108px] text-white after:absolute after:right-[-60px] after:bottom-[-145px] after:text-[380px] after:font-black after:tracking-[-55px] after:text-white after:opacity-[.055] after:content-['ee'] tablet:py-[76px]"
         aria-labelledby="join-title"
       >
-        <Reveal className="relative z-1 mx-auto grid w-[min(var(--max-width),calc(100%_-_64px))] grid-cols-[1fr_auto] items-end gap-[50px] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:grid-cols-1 max-[760px]:items-start max-[760px]:gap-6 max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)] [&_.eyebrow]:mb-[14px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-yellow [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h2]:max-w-[850px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_p:not(.eyebrow)]:mt-5 [&_p:not(.eyebrow)]:max-w-[650px] [&_p:not(.eyebrow)]:text-[17px] [&_p:not(.eyebrow)]:text-white/74 max-[760px]:[&_h2]:text-[clamp(38px,11vw,52px)]">
+        <Reveal className="relative z-1 container-page grid grid-cols-[1fr_auto] items-end gap-[50px] tablet:grid-cols-1 tablet:items-start tablet:gap-6 [&_h2]:max-w-[850px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_p:not(.eyebrow)]:mt-5 [&_p:not(.eyebrow)]:max-w-[650px] [&_p:not(.eyebrow)]:text-[17px] [&_p:not(.eyebrow)]:text-white/74 tablet:[&_h2]:text-[clamp(38px,11vw,52px)]">
           <div>
-            <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-yellow uppercase before:h-px before:w-6 before:bg-current before:content-['']">
+            <p className="eyebrow text-yellow">
               Volunteer &amp; Sponsor
             </p>
             <h2
               id="join-title"
-              className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal"
+              className="display-2"
             >
               Take your place in the next transformation.
             </h2>

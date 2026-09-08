@@ -42,14 +42,14 @@ export function InvolvementApplication() {
   return (
     <>
       <section
-        className="py-[112px] max-[760px]:py-[78px]"
+        className="py-[112px] tablet:py-[78px]"
         aria-labelledby="pathways-title"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)] max-[400px]:w-[calc(100%_-_20px)]">
-          <Reveal className="mb-[52px] grid grid-cols-[1fr_.72fr] items-end gap-[85px] max-[1050px]:grid-cols-1 max-[1050px]:gap-[35px] [&_.eyebrow]:mb-4 [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_.rich-intro-copy]:border-t [&_.rich-intro-copy]:border-ink [&_.rich-intro-copy]:pt-[18px] [&_.rich-intro-copy_p]:max-w-[560px] [&_.rich-intro-copy_p]:text-[16px] [&_.rich-intro-copy_p]:text-muted">
+        <div className="container-page">
+          <Reveal className="mb-[52px] grid grid-cols-[1fr_.72fr] items-end gap-[85px] laptop:grid-cols-1 laptop:gap-[35px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,74px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_.rich-intro-copy]:border-t [&_.rich-intro-copy]:border-ink [&_.rich-intro-copy]:pt-[18px] [&_.rich-intro-copy_p]:max-w-[560px] [&_.rich-intro-copy_p]:text-[16px] [&_.rich-intro-copy_p]:text-muted">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Choose a pathway</p>
-              <h2 id="pathways-title" className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+              <p className="eyebrow">Choose a pathway</p>
+              <h2 id="pathways-title" className="display-2">
                 Two ways to step in.
               </h2>
             </div>
@@ -60,9 +60,9 @@ export function InvolvementApplication() {
               </p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-2 gap-3 max-[1050px]:grid-cols-1">
+          <div className="grid grid-cols-2 gap-3 laptop:grid-cols-1">
             <Reveal className="group relative overflow-hidden rounded-[28px] border border-ink bg-white">
-              <div className="relative h-[430px] overflow-hidden max-[760px]:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
+              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
                 <SiteImage
                   alt="Volunteers working together"
                   sizes="(max-width: 760px) 100vw, 50vw"
@@ -72,8 +72,8 @@ export function InvolvementApplication() {
               <span className="absolute top-[18px] right-[18px] grid size-12 place-items-center rounded-full bg-paper text-[10px] font-black text-ink">
                 01
               </span>
-              <div className="p-[30px] [&_.eyebrow]:mb-[18px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-brand [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h3]:mb-[14px] [&_h3]:font-display [&_h3]:text-[40px] [&_h3]:leading-none [&_h3]:font-normal [&_p:not(.eyebrow)]:text-[14px] [&_p:not(.eyebrow)]:text-muted">
-                <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Volunteer</p>
+              <div className="p-[30px] [&_h3]:mb-[14px] [&_h3]:font-display [&_h3]:text-[40px] [&_h3]:leading-none [&_h3]:font-normal [&_p:not(.eyebrow)]:text-[14px] [&_p:not(.eyebrow)]:text-muted">
+                <p className="eyebrow">Volunteer</p>
                 <h3>Give your presence and ability.</h3>
                 <p>
                   Volunteers participate in transformational outreach and
@@ -91,7 +91,7 @@ export function InvolvementApplication() {
               </div>
             </Reveal>
             <Reveal className="group relative overflow-hidden rounded-[28px] border border-ink bg-brand text-white">
-              <div className="relative h-[430px] overflow-hidden max-[760px]:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
+              <div className="relative h-[430px] overflow-hidden tablet:h-[330px] [&_img]:object-cover [&_img]:saturate-[.88] [&_img]:contrast-[1.02] [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.035]">
                 <SiteImage
                   alt="People discussing a partnership"
                   sizes="(max-width: 760px) 100vw, 50vw"
@@ -101,8 +101,8 @@ export function InvolvementApplication() {
               <span className="absolute top-[18px] right-[18px] grid size-12 place-items-center rounded-full bg-paper text-[10px] font-black text-ink">
                 02
               </span>
-              <div className="p-[30px] [&_.eyebrow]:mb-[18px] [&_.eyebrow]:flex [&_.eyebrow]:items-center [&_.eyebrow]:gap-[9px] [&_.eyebrow]:text-[11px] [&_.eyebrow]:leading-none [&_.eyebrow]:font-extrabold [&_.eyebrow]:tracking-[.13em] [&_.eyebrow]:text-yellow [&_.eyebrow]:uppercase [&_.eyebrow]:before:h-px [&_.eyebrow]:before:w-6 [&_.eyebrow]:before:bg-current [&_.eyebrow]:before:content-[''] [&_h3]:mb-[14px] [&_h3]:font-display [&_h3]:text-[40px] [&_h3]:leading-none [&_h3]:font-normal [&_p:not(.eyebrow)]:text-[14px] [&_p:not(.eyebrow)]:text-white/72">
-                <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Sponsor</p>
+              <div className="p-[30px] [&_h3]:mb-[14px] [&_h3]:font-display [&_h3]:text-[40px] [&_h3]:leading-none [&_h3]:font-normal [&_p:not(.eyebrow)]:text-[14px] [&_p:not(.eyebrow)]:text-white/72">
+                <p className="eyebrow">Sponsor</p>
                 <h3>Put resources behind a project.</h3>
                 <p>
                   Sponsorship may be Financial, In-Kind or Partnership-based and
@@ -122,11 +122,11 @@ export function InvolvementApplication() {
       </section>
 
       <section className="bg-white py-[100px]" aria-labelledby="process-title">
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)]">
-          <Reveal className="mb-[60px] grid grid-cols-[1fr_.55fr] items-end gap-[60px] max-[1050px]:grid-cols-1 max-[1050px]:gap-6 [&>p]:max-w-[460px] [&>p]:text-[16px] [&>p]:text-muted">
+        <div className="container-page">
+          <Reveal className="mb-[60px] grid grid-cols-[1fr_.55fr] items-end gap-[60px] laptop:grid-cols-1 laptop:gap-6 [&>p]:max-w-[460px] [&>p]:text-[16px] [&>p]:text-muted">
             <div>
-              <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">What happens next</p>
-              <h2 id="process-title" className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">
+              <p className="eyebrow">What happens next</p>
+              <h2 id="process-title" className="display-2">
                 Simple in V1.
                 <br />
                 Human by design.
@@ -138,7 +138,7 @@ export function InvolvementApplication() {
               directly.
             </p>
           </Reveal>
-          <Reveal className="grid grid-cols-4 border-t border-ink max-[760px]:grid-cols-1 [&>article]:min-h-[200px] [&>article]:border-r [&>article]:border-ink [&>article]:p-[26px] [&>article]:px-7 [&>article:last-child]:border-r-0 max-[760px]:[&>article]:min-h-0 max-[760px]:[&>article]:border-r-0 max-[760px]:[&>article]:border-b max-[760px]:[&>article:last-child]:border-b-0 [&>article>span]:text-[10px] [&>article>span]:font-black [&>article>span]:text-brand [&_h3]:mt-10 [&_h3]:mb-2.5 [&_h3]:font-display [&_h3]:text-[26px] [&_h3]:font-normal [&_p]:text-[13px] [&_p]:text-muted">
+          <Reveal className="grid grid-cols-4 border-t border-ink tablet:grid-cols-1 [&>article]:min-h-[200px] [&>article]:border-r [&>article]:border-ink [&>article]:p-[26px] [&>article]:px-7 [&>article:last-child]:border-r-0 tablet:[&>article]:min-h-0 tablet:[&>article]:border-r-0 tablet:[&>article]:border-b tablet:[&>article:last-child]:border-b-0 [&>article>span]:text-[10px] [&>article>span]:font-black [&>article>span]:text-brand [&_h3]:mt-10 [&_h3]:mb-2.5 [&_h3]:font-display [&_h3]:text-[26px] [&_h3]:font-normal [&_p]:text-[13px] [&_p]:text-muted">
             <article>
               <span>01</span>
               <h3>Choose</h3>
@@ -165,15 +165,15 @@ export function InvolvementApplication() {
 
       <section
         ref={applicationRef}
-        className="bg-cream py-[112px] max-[760px]:py-[78px]"
+        className="bg-cream py-[112px] tablet:py-[78px]"
         id="application"
       >
-        <div className="mx-auto w-[min(var(--max-width),calc(100%_-_64px))] max-[1050px]:w-[min(var(--max-width),calc(100%_-_38px))] max-[760px]:w-[calc(100%_-_28px)]">
-          <Reveal className="grid overflow-hidden rounded-[30px] border border-ink bg-white grid-cols-[.72fr_1.28fr] max-[1050px]:grid-cols-1">
-            <aside className="flex min-h-[760px] flex-col justify-between bg-brand-dark p-12 text-white max-[1050px]:min-h-[360px] max-[760px]:p-7 [&_.eyebrow]:mb-[17px] [&_.eyebrow]:text-yellow [&_h2]:mb-[18px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,68px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_p:not(.eyebrow)]:text-white/70">
+        <div className="container-page">
+          <Reveal className="grid overflow-hidden rounded-[30px] border border-ink bg-white grid-cols-[.72fr_1.28fr] laptop:grid-cols-1">
+            <aside className="flex min-h-[760px] flex-col justify-between bg-brand-dark p-12 text-white laptop:min-h-[360px] tablet:p-7 [&_h2]:mb-[18px] [&_h2]:font-display [&_h2]:text-[clamp(42px,5vw,68px)] [&_h2]:leading-[.98] [&_h2]:font-normal [&_p:not(.eyebrow)]:text-white/70">
               <div>
-                <p className="mb-5 flex items-center gap-[9px] text-[11px] leading-none font-extrabold tracking-[.13em] text-brand uppercase before:h-px before:w-6 before:bg-current before:content-['']">Application</p>
-                <h2 className="font-display text-[clamp(42px,5vw,74px)] leading-[.98] font-normal">Take the next step.</h2>
+                <p className="eyebrow">Application</p>
+                <h2 className="display-2">Take the next step.</h2>
                 <p>Choose the form that fits how you want to contribute.</p>
               </div>
               <div className="flex items-center gap-[15px] font-display text-[20px]">
@@ -181,7 +181,7 @@ export function InvolvementApplication() {
                 <span>The Ordained Life</span>
               </div>
             </aside>
-            <div className="p-12 max-[760px]:p-7">
+            <div className="p-12 tablet:p-7">
               <div
                 className="mb-[30px] flex gap-[6px] border-b border-ink pb-[14px]"
                 aria-label="Application type"
@@ -206,13 +206,13 @@ export function InvolvementApplication() {
 
               {activeApplication === "volunteer" ? (
                 <form onSubmit={submitApplication}>
-                  <div className="mb-7 flex justify-between gap-5 border-b border-ink pb-[14px] max-[760px]:flex-col max-[760px]:gap-2.5 [&>span]:font-black [&_small]:text-muted">
+                  <div className="mb-7 flex justify-between gap-5 border-b border-ink pb-[14px] tablet:flex-col tablet:gap-2.5 [&>span]:font-black [&_small]:text-muted">
                     <span>Volunteer Application</span>
                     <small>
                       All fields follow the V1 website architecture.
                     </small>
                   </div>
-                  <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">
+                  <div className="grid grid-cols-2 gap-[18px] tablet:grid-cols-1">
                     <Field
                       label="Full Name"
                       name="fullName"
@@ -257,7 +257,7 @@ export function InvolvementApplication() {
                       name="motivation"
                       placeholder="Tell the team what draws you to the work."
                     />
-                    <div className="col-[1/-1] grid gap-2 max-[760px]:col-auto">
+                    <div className="col-[1/-1] grid gap-2 tablet:col-auto">
                       <button
                         type="submit"
                         className="btn btn-brand"
@@ -270,11 +270,11 @@ export function InvolvementApplication() {
                 </form>
               ) : (
                 <form onSubmit={submitApplication}>
-                  <div className="mb-7 flex justify-between gap-5 border-b border-ink pb-[14px] max-[760px]:flex-col max-[760px]:gap-2.5 [&>span]:font-black [&_small]:text-muted">
+                  <div className="mb-7 flex justify-between gap-5 border-b border-ink pb-[14px] tablet:flex-col tablet:gap-2.5 [&>span]:font-black [&_small]:text-muted">
                     <span>Sponsor Application</span>
                     <small>Financial, In-Kind or Partnership interest.</small>
                   </div>
-                  <div className="grid grid-cols-2 gap-[18px] max-[760px]:grid-cols-1">
+                  <div className="grid grid-cols-2 gap-[18px] tablet:grid-cols-1">
                     <Field
                       label="Name / Organisation"
                       name="name"
@@ -305,7 +305,7 @@ export function InvolvementApplication() {
                       options={projects.map((project) => project.title)}
                       full
                     />
-                    <div className="col-[1/-1] grid gap-2 max-[760px]:col-auto">
+                    <div className="col-[1/-1] grid gap-2 tablet:col-auto">
                       <button
                         type="submit"
                         className="btn btn-brand"
@@ -387,7 +387,7 @@ function SelectField({ full = false, label, name, options }: SelectFieldProps) {
 
   return (
     <div
-      className={`grid gap-2 [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_select]:min-h-[46px] [&_select]:w-full [&_select]:rounded-[7px] [&_select]:border [&_select]:border-line [&_select]:bg-paper [&_select]:px-[13px] [&_select]:py-3 [&_select]:text-[14px] [&_select]:text-ink [&_select:focus]:border-brand [&_select:focus]:outline-2 [&_select:focus]:outline-brand/24 ${full ? "col-[1/-1] max-[760px]:col-auto" : ""}`}
+      className={`grid gap-2 [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_select]:min-h-[46px] [&_select]:w-full [&_select]:rounded-[7px] [&_select]:border [&_select]:border-line [&_select]:bg-paper [&_select]:px-[13px] [&_select]:py-3 [&_select]:text-[14px] [&_select]:text-ink [&_select:focus]:border-brand [&_select:focus]:outline-2 [&_select:focus]:outline-brand/24 ${full ? "col-[1/-1] tablet:col-auto" : ""}`}
     >
       <label htmlFor={id}>{label}</label>
       <select id={id} name={name} defaultValue={options[0]}>
@@ -409,7 +409,7 @@ function TextAreaField({ label, name, placeholder }: TextAreaFieldProps) {
   const id = `involvement-${name}`;
 
   return (
-    <div className="col-[1/-1] grid gap-2 max-[760px]:col-auto [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_textarea]:min-h-[120px] [&_textarea]:w-full [&_textarea]:resize-y [&_textarea]:rounded-[7px] [&_textarea]:border [&_textarea]:border-line [&_textarea]:bg-paper [&_textarea]:px-[13px] [&_textarea]:py-3 [&_textarea]:text-[14px] [&_textarea]:text-ink [&_textarea:focus]:border-brand [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-brand/24">
+    <div className="col-[1/-1] grid gap-2 tablet:col-auto [&_label]:text-[10px] [&_label]:font-black [&_label]:tracking-[.04em] [&_label]:uppercase [&_textarea]:min-h-[120px] [&_textarea]:w-full [&_textarea]:resize-y [&_textarea]:rounded-[7px] [&_textarea]:border [&_textarea]:border-line [&_textarea]:bg-paper [&_textarea]:px-[13px] [&_textarea]:py-3 [&_textarea]:text-[14px] [&_textarea]:text-ink [&_textarea:focus]:border-brand [&_textarea:focus]:outline-2 [&_textarea:focus]:outline-brand/24">
       <label htmlFor={id}>{label}</label>
       <textarea id={id} name={name} placeholder={placeholder} />
     </div>
