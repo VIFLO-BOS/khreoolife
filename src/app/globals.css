@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* ============================================================
+   NAMED BREAKPOINTS
+
+   This site is desktop-first: every responsive rule is a max-width
+   override, inherited from the original hand-written CSS. These
+   variants give those widths names, so markup reads
+
+       tablet:grid-cols-1        instead of   max-[760px]:grid-cols-1
+
+   Why @custom-variant and not Tailwind's `--breakpoint-*` tokens:
+   `--breakpoint-*` also generates `max-*` variants, but it renders them
+   as `(width < 760px)`, which EXCLUDES exactly 760px. The reference CSS
+   uses `max-width: 760px`, which INCLUDES it. @custom-variant keeps the
+   original boundary exactly, so nothing shifts by a pixel.
+
+   | Variant     | Applies at      | Where it came from                |
+   | ----------- | --------------- | --------------------------------- |
+   | tiny        | <= 360px        | reference only - hero type        |
+   | phone       | <= 400px        | container gutter                  |
+   | phone-lg    | <= 430px        | stat circles, pillar images       |
+   | mobile      | <= 560px        | reference only - event cards      |
+   | tablet      | <= 760px        | the main mobile breakpoint        |
+   | tablet-lg   | <= 900px        | events rail                       |
+   | laptop      | <= 1050px       | the main tablet breakpoint        |
+   | laptop-lg   | <= 1180px       | pillar image rail                 |
+   | desktop     | >= 1051px       | the only min-width rule           |
+
+   `tiny` and `mobile` exist in the reference but were dropped during the
+   Tailwind migration. They are declared here so Step 5 can restore them.
+   ============================================================ */
+@custom-variant tiny (@media (max-width: 360px));
+@custom-variant phone (@media (max-width: 400px));
+@custom-variant phone-lg (@media (max-width: 430px));
+@custom-variant mobile (@media (max-width: 560px));
+@custom-variant tablet (@media (max-width: 760px));
+@custom-variant tablet-lg (@media (max-width: 900px));
+@custom-variant laptop (@media (max-width: 1050px));
+@custom-variant laptop-lg (@media (max-width: 1180px));
+@custom-variant desktop (@media (min-width: 1051px));
+
 :root {
     --brand: #8332ab;
     --brand-dark: #4f1d66;
@@ -25,6 +65,41 @@
     --nav-height: 76px;
     --ui-font: Arial, Helvetica, sans-serif;
     --display-font: Georgia, "Times New Roman", serif;
+
+    /* --- Spacing rhythm -------------------------------------------
+       Replaces the one-off section paddings (py-[54px], pb-[104px],
+       py-[108px], py-[76px] ...) with four named steps. Values are the
+       ones already in use, not new inventions, so adopting them in
+       Step 3 changes nothing visually.                              */
+    --space-section: 108px;         /* full section block            */
+    --space-section-end: 104px;     /* section bottom where it differs */
+    --space-section-enter: 56px;    /* tightened top entry           */
+    --space-section-mobile: 76px;   /* section block below `tablet`  */
+
+    /* Container gutters, one per breakpoint tier                    */
+    --gutter: 64px;
+    --gutter-laptop: 38px;
+    --gutter-tablet: 28px;
+    --gutter-phone: 20px;
+
+    /* --- Motion ---------------------------------------------------
+       Today the same gesture is timed six different ways (200ms,
+       220ms, 250ms, 350ms, .3s, .36s). These are the survivors.     */
+    --motion-ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --motion-ease-flip: cubic-bezier(0.2, 0.75, 0.2, 1);
+    --motion-hover: 300ms;          /* colour / border on hover      */
+    --motion-panel: 250ms;          /* menus, drawers, reveals       */
+    --motion-lift: 350ms;           /* card raise                    */
+    --motion-media: 550ms;          /* image scale inside a card     */
+
+    /* --- Type scale ----------------------------------------------
+       Taken from the reference. Note --text-display-2 is 78px, not
+       the 74px currently hardcoded in 25 places; the correction lands
+       when components adopt the token in Step 3.                    */
+    --type-display-1: clamp(58px, 8vw, 126px);
+    --type-display-2: clamp(42px, 5vw, 78px);
+    --type-display-3: clamp(23px, 2.2vw, 34px);
+    --type-lede: clamp(18px, 1.7vw, 23px);
 }
 
 @theme {
@@ -50,6 +125,30 @@
     --radius-brand: var(--radius);
     --radius-brand-large: var(--radius-large);
     --container-content: var(--max-width);
+
+    /* Spacing -> p-section, py-section-mobile, gap-gutter, ...       */
+    --spacing-section: var(--space-section);
+    --spacing-section-end: var(--space-section-end);
+    --spacing-section-enter: var(--space-section-enter);
+    --spacing-section-mobile: var(--space-section-mobile);
+    --spacing-gutter: var(--gutter);
+    --spacing-gutter-laptop: var(--gutter-laptop);
+    --spacing-gutter-tablet: var(--gutter-tablet);
+    --spacing-gutter-phone: var(--gutter-phone);
+
+    /* Motion -> ease-brand, ease-flip, duration-hover, ...          */
+    --ease-brand: var(--motion-ease-brand);
+    --ease-flip: var(--motion-ease-flip);
+    --duration-hover: var(--motion-hover);
+    --duration-panel: var(--motion-panel);
+    --duration-lift: var(--motion-lift);
+    --duration-media: var(--motion-media);
+
+    /* Type -> text-display-1, text-lede, ...                        */
+    --text-display-1: var(--type-display-1);
+    --text-display-2: var(--type-display-2);
+    --text-display-3: var(--type-display-3);
+    --text-lede: var(--type-lede);
 }
 
 * {

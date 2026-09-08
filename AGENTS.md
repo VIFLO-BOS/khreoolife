@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Khreeolife UI Refactor & Premium Polish — Working Plan
 
-> **Status:** Analysis complete. Step 0 (baseline) in progress.
+> **Status:** Steps 0 and 1 complete. Step 2 (extract component classes) is next.
 > **Scope:** Refactor the Tailwind layer, reconcile with the reference HTML,
 > close responsive gaps, and raise the finish to a premium level.
 > **Non-goal:** This is **not** a redesign. Layout, content, brand colours and
@@ -149,11 +149,10 @@ across all 7 routes at 360 / 430 / 560 / 760 / 1050 / 1440px.
 
 ### Step 0 — Baseline and safety net
 
-- [ ] 0.1 **Action required — there is currently no rollback point.** The repo is
-      on `master` with a single commit (`b659785 Initial commit from Create Next
-      App`). Every file of actual work — all 7 pages, all 20 components,
-      `globals.css` — is **uncommitted**, either modified or untracked. A refactor
-      of this size must not start on top of that. Commit the current state first.
+- [x] 0.1 **Done.** Rollback point created: `Snapshot working state before UI
+      refactor` (42 files). Before this the repo had a single commit
+      (`b659785 Initial commit from Create Next App`) with all real work
+      uncommitted.
 - [ ] 0.2 Capture "before" screenshots of all 7 routes at the 6 widths above.
       These are the visual-regression reference for every later step.
 - [x] 0.3 Baseline recorded (Node 24.19.0, Next 16.3.4, Turbopack):
@@ -190,7 +189,30 @@ across all 7 routes at 360 / 430 / 560 / 760 / 1050 / 1440px.
 
 Foundation for everything after; no visual change intended.
 
-- [ ] 1.1 Add named breakpoint variants so pixel literals disappear from markup:
+**Step 1 is complete.** Build passes; CSS grew 97,129 → 97,985 bytes (+856),
+which is exactly the `:root` token declarations. **Zero utility classes were
+emitted** — verified by grepping the built CSS for each new utility — so the
+step is visually inert, as intended. Tokens only become rules when components
+adopt them in Steps 2–3.
+
+> **Engine finding, worth knowing before Step 2.** Tailwind v4 has an `--ease-*`
+> theme namespace but **no `--duration-*` namespace**. `ease-brand` and
+> `ease-flip` generate real utilities; `duration-lift` and `duration-media`
+> silently generate **nothing**. Confirmed by building a throwaway probe
+> component and grepping the output.
+>
+> Use the CSS-variable shorthand in markup instead — this does work:
+> ```
+> duration-(--duration-lift)
+> ```
+> Inside a component class in `globals.css`, plain `var(--duration-lift)` is
+> fine. Do not write `duration-lift` and assume it applied; it will fail silently.
+>
+> The same probe confirmed the durations currently in the wild are
+> `duration-200`, `[220ms]`, `[250ms]`, `[280ms]` and `[350ms]` — the
+> inconsistency recorded in §1.5, now visible in the build output.
+
+- [x] 1.1 Add named breakpoint variants so pixel literals disappear from markup:
       ```css
       @custom-variant phone   (@media (max-width: 400px));
       @custom-variant mobile  (@media (max-width: 560px));
@@ -199,12 +221,12 @@ Foundation for everything after; no visual change intended.
       @custom-variant desktop (@media (min-width: 1051px));
       ```
       Reconcile the stray `430px` / `900px` / `1180px` uses onto this scale.
-- [ ] 1.2 Add a spacing rhythm to `@theme` (`--spacing-section`,
+- [x] 1.2 Add a spacing rhythm to `@theme` (`--spacing-section`,
       `--spacing-section-tight`, `--spacing-gutter`) to replace one-off
       `py-[54px]` / `pb-[104px]` values.
-- [ ] 1.3 Add a motion scale (`--ease-brand`, `--duration-hover`,
+- [x] 1.3 Add a motion scale (`--ease-brand`, `--duration-hover`,
       `--duration-panel`) so every hover uses one curve and one timing.
-- [ ] 1.4 Add the type scale as tokens (`--text-display-1/2/3`, `--text-lede`),
+- [x] 1.4 Add the type scale as tokens (`--text-display-1/2/3`, `--text-lede`),
       correcting `h2` to the reference's `clamp(42px, 5vw, 78px)`.
 
 ### Step 2 — Extract repeated patterns into component classes
@@ -302,6 +324,47 @@ The "make it feel expensive" work, done last so it lands on clean foundations.
 - [ ] 7.5 Confirm the CSS bundle shrank; record before/after numbers.
 - [ ] 7.6 Re-check keyboard navigation and `prefers-reduced-motion` on every
       interactive component.
+
+---
+
+## 3a. Git identity — borrowed machine
+
+This work is being done on a machine that belongs to someone else. The two
+identities must not be mixed up.
+
+| Scope | Identity | Applies to |
+| --- | --- | --- |
+| `--global` (`C:/Users/DDR_PC/.gitconfig`) | `Oluwatosin Ademola <Princetyson49@gmail.com>` | **Machine owner.** Every other repo on this machine. **Do not modify.** |
+| `--local` (this repo only) | `Bankole Olaniyi <adeniyisunday2244@gmail.com>` | This repo's commits only. |
+
+`origin` → `https://github.com/VIFLO-BOS/khreeolife`
+
+### End-of-project teardown checklist
+
+Run **after** the final push, to leave the machine as it was found:
+
+```bash
+git config --local --unset user.name
+git config --local --unset user.email
+git remote remove origin
+cmdkey /delete:git:https://github.com
+```
+
+> **The last line is the one that is easy to miss.** The credential helper is
+> `manager` (Git Credential Manager), set at *system* level in
+> `C:/Program Files/Git/etc/gitconfig`. On the first push it stores the GitHub
+> token in **Windows Credential Manager, machine-wide** — that is not
+> repo-scoped, and `git config --local --unset` will not touch it. Without that
+> line the account stays logged in on the owner's machine.
+>
+> Verify the reset with:
+> ```bash
+> git config user.email          # should print the OWNER's address
+> cmdkey /list | grep -i github  # should print nothing
+> ```
+
+As of the baseline commit, `cmdkey /list` showed no GitHub entries — nothing has
+been stored yet.
 
 ---
 
