@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProMedium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProMediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProBlack.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("/fonts/GothamProBlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --brand: #8332ab;
+  --brand-dark: #481b5e;
+  --brand-soft: #eee5f3;
+  --yellow: #f7e360;
+  --ink: #121113;
+  --paper: #fbf8f3;
+  --cream: #f5f0e7;
+  --nav-height: 76px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-family: var(--font-roboto), "Gotham Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+
+/* ── Font Assignments ── */
+
+/* Montserrat: Standard headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), "Gotham Pro", "Helvetica Neue", sans-serif;
+}
+
+/* Roboto: Body copy, paragraphs, lists */
+p, li, td, th, dd, dt, blockquote, figcaption {
+  font-family: var(--font-roboto), "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+
+/* Gotham Pro (Brand): Display titles, UI elements, buttons, nav, labels */
+.display-title, .eyebrow, .pill-tag, .status-pill, .sticker, label, legend, small, nav a, button, input, select, textarea {
+  font-family: "Gotham Pro", "Gotham", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-[min(1320px,calc(100%-64px))] max-md:w-[calc(100%-28px)];
+  }
+
+  .eyebrow {
+    @apply flex items-center gap-2.5 text-[10px] font-black uppercase tracking-[0.14em];
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-6 bg-current;
+  }
+
+  .display-title {
+    @apply font-display font-normal leading-[0.96] tracking-[-0.055em];
+  }
+
+  .section-pad {
+    @apply py-28 max-md:py-20;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-ink;
+  }
+
+  .pill-tag {
+    @apply inline-flex items-center rounded-full border border-current px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.09em];
+  }
+
+  .status-pill {
+    @apply inline-flex rounded-full bg-[#ece8e4] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.08em] text-ink;
+  }
+
+  .status-pill-future {
+    @apply bg-[#e8fbe4] text-[#28761e];
+  }
+
+  .sticker {
+    @apply inline-flex -rotate-3 rounded bg-yellow px-2.5 py-1 text-xs font-black text-ink;
+  }
+
+  .card-border {
+    @apply overflow-hidden rounded-[26px] border border-ink bg-white;
+  }
+}
+
+.logo-smile {
+  position: relative;
+  width: 31px;
+  height: 31px;
+  flex: none;
+}
+
+.logo-smile::before {
+  content: "ee";
+  position: absolute;
+  left: 1px;
+  top: -7px;
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.logo-smile::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  bottom: 0;
+  width: 18px;
+  height: 10px;
+  border: 4px solid currentColor;
+  border-top: 0;
+  border-radius: 0 0 20px 20px;
+}
+
+.flip-card {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(.2, .75, .2, 1);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.hero-scene {
+  animation: heroScene 18s ease-in-out infinite;
+}
+
+.hero-scene:nth-child(2) {
+  animation-delay: -12s;
+}
+
+.hero-scene:nth-child(3) {
+  animation-delay: -6s;
+}
+
+@keyframes heroScene {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+
+  8%,
+  30% {
+    opacity: 1;
+  }
+
+  34% {
+    opacity: 0;
+    transform: scale(1.09) translate3d(-1%, 1%, 0);
+  }
+}
+
+.orbit-mark {
+  animation: orbitMark 14s linear infinite;
+}
+
+@keyframes orbitMark {
+  from {
+    transform: rotate(0deg) translateX(215px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(215px) rotate(-360deg);
+  }
+}
+
+.magazine-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  from{
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --nav-height: 68px;
+  }
+
+  .orbit-mark {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
