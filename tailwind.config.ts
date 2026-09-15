@@ -25,10 +25,10 @@ const config: Config = {
         red: "#F9001E",
       },
       fontFamily: {
-        sans: ["var(--font-roboto)", "Gotham Pro", "Gotham", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
-        display: ["var(--font-montserrat)", "Gotham Pro", "Gotham", "Helvetica Neue", "sans-serif"],
-        heading: ["var(--font-montserrat)", "Gotham Pro", "Helvetica Neue", "sans-serif"],
-        body: ["var(--font-roboto)", "Gotham Pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        sans: ["var(--font-ui-loaded)", "Arial", "Helvetica", "sans-serif"],
+        display: ["var(--font-display-loaded)", "Georgia", "Times New Roman", "serif"],
+        heading: ["var(--font-display-loaded)", "Georgia", "Times New Roman", "serif"],
+        body: ["var(--font-ui-loaded)", "Arial", "Helvetica", "sans-serif"],
       },
       maxWidth: {
         site: "1320px",

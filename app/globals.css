@@ -2,69 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProLight.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProRegular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProItalic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProMedium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProMediumItalic.woff") format("woff");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProBold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProBlack.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gotham Pro";
-  src: url("/fonts/GothamProBlackItalic.woff") format("woff");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
 
 :root {
   --brand: #8332ab;
@@ -75,6 +12,17 @@
   --paper: #fbf8f3;
   --cream: #f5f0e7;
   --nav-height: 76px;
+
+  /* Formal font stacks */
+  --ui-font: var(--font-ui-loaded),
+    Arial,
+    Helvetica,
+    sans-serif;
+  --display-font: var(--font-display-loaded),
+    Georgia,
+    "Times New Roman",
+    serif;
+
 }
 
 * {
@@ -90,25 +38,21 @@ body {
   background: var(--paper);
   color: var(--ink);
   overflow-x: hidden;
-  font-family: var(--font-roboto), "Gotham Pro", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-family: var(--ui-font);
 }
 
 /* ── Font Assignments ── */
 
-/* Montserrat: Standard headings */
+/* Formal serif: Standard headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), "Gotham Pro", "Helvetica Neue", sans-serif;
+  font-family: var(--display-font);
 }
 
-/* Roboto: Body copy, paragraphs, lists */
+/* Formal sans-serif: Body copy, paragraphs, lists */
 p, li, td, th, dd, dt, blockquote, figcaption {
-  font-family: var(--font-roboto), "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-family: var(--ui-font);
 }
 
-/* Gotham Pro (Brand): Display titles, UI elements, buttons, nav, labels */
-.display-title, .eyebrow, .pill-tag, .status-pill, .sticker, label, legend, small, nav a, button, input, select, textarea {
-  font-family: "Gotham Pro", "Gotham", "Helvetica Neue", Arial, sans-serif !important;
-}
 
 a {
   color: inherit;
