@@ -7,21 +7,21 @@ export function MissionVision() {
   return (
     <section className="bg-paper pb-28 pt-14 max-md:pb-20 max-md:pt-11">
       <div className="site-container">
-        <Reveal className="grid grid-cols-[42%_58%] items-center gap-10 max-lg:grid-cols-1 max-lg:gap-4">
+        <Reveal className="grid grid-cols-[minmax(0,.42fr)_minmax(0,.58fr)] items-center gap-10 max-lg:grid-cols-1 max-lg:gap-4">
           <div className="h-px bg-ink" />
-          <h2 className="display-title text-[clamp(42px,5vw,74px)]">
+          <h2 className="display-title text-[clamp(42px,5vw,74px)] max-md:text-center max-md:text-balance max-md:text-[clamp(34px,9vw,42px)] leading-section">
             Mission &amp; Vision
           </h2>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-[42%_58%] gap-10 max-lg:grid-cols-1">
-          <Reveal>
+        <div className="mt-8 grid grid-cols-[minmax(0,.42fr)_minmax(0,.58fr)] gap-10 max-lg:grid-cols-1">
+          <Reveal className="min-w-0 max-md:text-center">
             <article className="group rounded-2xl border border-transparent p-6 transition-all duration-500 hover:-translate-y-2 hover:border-ink hover:bg-white hover:shadow-xl">
-              <div className="eyebrow mb-4 text-brand">Mission</div>
-              <h3 className="font-display text-[clamp(20px,2.3vw,40px)] font-normal">
+              <div className="eyebrow mb-4 text-brand max-md:justify-center">Mission</div>
+              <h3 className="font-display text-[clamp(24px,2.5vw,36px)] font-normal tracking-[-.04em] max-md:text-[clamp(24px,6vw,30px)] leading-card">
                 Transforming people and communities through the love of God.
               </h3>
-              <p className="mt-4 max-w-[440px] text-[14px] leading-5 text-[#625b63]">
+              <p className="mt-4 max-w-[440px] text-[14px] text-[#625b63] max-md:mx-auto leading-body">
                 Khreeolife is a faith-based non-profit dedicated to transforming
                 people and communities through the love of God both in words and
                 in deeds.
@@ -35,12 +35,12 @@ export function MissionVision() {
               </div>
             </article>
             <article className="group mt-4 rounded-2xl border border-transparent p-6 transition-all duration-500 hover:-translate-y-2 hover:border-ink hover:bg-white hover:shadow-xl">
-              <div className="eyebrow mb-4 text-brand">Vision</div>
-              <h3 className="font-display text-[clamp(20px,3.3vw,40px)] font-normal tracking-[-.04em]">
+              <div className="eyebrow mb-4 text-brand max-md:justify-center">Vision</div>
+              <h3 className="font-display text-[clamp(24px,2.5vw,36px)] font-normal tracking-[-.04em] max-md:text-[clamp(24px,6vw,30px)] leading-card">
                 The Ordained Life expressed through people, community and
                 service.
               </h3>
-              <p className="mt-4 max-w-[440px] text-[14px] leading-7 text-[#625b63]">
+              <p className="mt-4 max-w-[440px] text-[14px] text-[#625b63] max-md:mx-auto leading-body">
                 Khreeolife's work is organised through Community Development,
                 Education and Christian Missions.
               </p>
@@ -56,7 +56,7 @@ export function MissionVision() {
 
           <Reveal
             delay={0.08}
-            className="grid min-h-[590px] place-items-center max-md:min-h-[430px]"
+            className="grid min-h-[590px] min-w-0 place-items-center max-lg:min-h-0 max-lg:py-8"
           >
             <div className="relative grid aspect-square w-[min(520px,90%)] place-items-center rounded-full border border-ink">
               <div className="relative h-[76%] w-[76%] overflow-hidden rounded-full shadow-soft">
@@ -68,10 +68,10 @@ export function MissionVision() {
                   sizes="500px"
                 />
               </div>
-              <div className="orbit-mark absolute left-1/2 top-1/2 -ml-11 -mt-11 grid size-[88px] place-items-center rounded-3xl border border-ink bg-yellow font-display text-3xl font-bold max-md:hidden">
+              <div className="orbit-mark absolute left-1/2 top-1/2 -ml-11 -mt-11 grid size-[88px] place-items-center rounded-3xl border border-ink bg-yellow font-logo text-3xl font-bold max-md:hidden">
                 ee
               </div>
-              <span className="absolute bottom-[14%] right-[5%] rounded-full bg-brand px-4 py-2 text-[9px] font-black uppercase tracking-[.09em] text-white">
+              <span className="absolute bottom-[14%] right-[5%] rounded-full bg-brand px-4 py-2 text-[9px] font-black uppercase tracking-[.09em] text-white leading-caption">
                 A life of faith in action
               </span>
             </div>

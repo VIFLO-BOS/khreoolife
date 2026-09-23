@@ -26,10 +26,10 @@ export default function DonatePage() {
         <div className="site-container relative z-10 grid min-h-[calc(100svh-var(--nav-height))] grid-cols-2 items-center gap-24 py-20 max-lg:grid-cols-1 max-lg:gap-10 max-lg:pt-24">
           <Reveal className="pr-8 text-white max-lg:flex max-lg:min-h-[42vh] max-lg:flex-col max-lg:justify-end max-lg:pr-0">
             <div className="eyebrow mb-5 text-yellow">Donate Now</div>
-            <h1 className="display-title text-[clamp(52px,5.8vw,86px)]">
+            <h1 className="display-title text-[clamp(52px,5.8vw,86px)] leading-hero">
               Put resources behind transformation.
             </h1>
-            <p className="mt-5 max-w-[560px] font-display text-xl leading-8 text-white/90">
+            <p className="mt-5 max-w-[560px] font-display text-xl text-white/90 leading-lead">
               Support Khreeolife&apos;s work across Community Development,
               Education and Christian Missions.
             </p>
@@ -79,11 +79,11 @@ export default function DonatePage() {
                 className={`flex min-h-[420px] flex-col rounded-[24px] border border-ink p-8 ${tone}`}
               >
                 <div className="mb-auto font-display text-7xl">{icon}</div>
-                <span className="text-[10px] font-black">{n}</span>
-                <h3 className="mt-5 font-display text-4xl font-normal">
+                <span className="text-[10px] font-black leading-caption">{n}</span>
+                <h3 className="mt-5 font-display text-4xl font-normal leading-card">
                   {title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 opacity-75">{copy}</p>
+                <p className="mt-4 text-sm opacity-75 leading-body">{copy}</p>
               </Reveal>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function DonatePage() {
               className={`p-7 ${index < 3 ? "border-r border-white/15 max-lg:border-r-0" : ""} max-lg:border-b max-md:border-r-0`}
             >
               <span className="font-display text-7xl">{value}</span>
-              <p className="mt-3 text-xs leading-6 text-white/60">{copy}</p>
+              <p className="mt-3 text-xs text-white/60 leading-caption">{copy}</p>
             </div>
           ))}
         </Reveal>
@@ -113,14 +113,14 @@ export default function DonatePage() {
         <Reveal className="site-container grid grid-cols-[1fr_.8fr] items-start gap-24 max-lg:grid-cols-1">
           <div>
             <div className="eyebrow mb-4 text-brand">V1 Scope</div>
-            <h2 className="display-title text-[clamp(44px,5vw,76px)]">
+            <h2 className="display-title text-[clamp(44px,5vw,76px)] leading-section">
               Designed now.
               <br />
               Payment processing later.
             </h2>
           </div>
           <div>
-            <p className="text-[17px] leading-8 text-[#6f6972]">
+            <p className="text-[17px] text-[#6f6972] leading-body">
               The site architecture explicitly places online donation payment
               processing in a future implementation phase. This page therefore
               presents the intended donor experience without pretending a live

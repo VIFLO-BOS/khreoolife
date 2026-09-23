@@ -24,7 +24,7 @@ export function FeaturedProjects() {
           />
         </Reveal>
         <div className="mt-10 grid grid-cols-[1.15fr_.85fr] gap-3 max-lg:grid-cols-1">
-          <Reveal className="relative min-h-[610px] overflow-hidden rounded-[26px] border border-ink text-white">
+          <Reveal className="relative min-h-[610px] overflow-hidden rounded-[26px] border border-ink text-white max-md:flex max-md:min-h-[480px] max-md:flex-col max-md:justify-end">
             <Image
               src={main.image}
               alt={main.title}
@@ -33,14 +33,14 @@ export function FeaturedProjects() {
               sizes="(max-width: 1024px) 100vw, 60vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 z-10 p-8">
-              <span className="pill-tag">
+            <div className="absolute inset-x-0 bottom-0 z-10 p-8 max-md:relative max-md:inset-auto max-md:p-6 max-md:text-center">
+              <span className="pill-tag max-md:max-w-full max-md:justify-center">
                 {main.pillars.join(" · ")} · {main.status}
               </span>
-              <h3 className="display-title mt-4 text-[clamp(38px,4vw,56px)]">
+              <h3 className="display-title mt-4 text-[clamp(38px,4vw,56px)] leading-card">
                 {main.title}
               </h3>
-              <p className="mt-3 max-w-[560px] text-sm leading-6 text-white/75">
+              <p className="mt-3 max-w-[560px] text-sm text-white/75 max-md:mx-auto leading-body">
                 {main.description}
               </p>
             </div>
@@ -50,7 +50,7 @@ export function FeaturedProjects() {
               <Reveal key={project.id} delay={0.06 * index}>
                 <Link
                   href="/projects"
-                  className={`card-border flex min-h-[190px] flex-col justify-between p-6 transition-transform hover:-translate-y-1 ${index === 1 ? "bg-cream" : index === 2 ? "bg-brand-soft" : "bg-white"}`}
+                  className={`card-border flex min-h-[190px] flex-col justify-between p-6 transition-transform hover:-translate-y-1 max-md:items-center max-md:gap-5 max-md:text-center ${index === 1 ? "bg-cream" : index === 2 ? "bg-brand-soft" : "bg-white"}`}
                 >
                   <span
                     className={`status-pill w-fit ${project.status === "Upcoming" ? "status-pill-future" : ""}`}
@@ -58,10 +58,10 @@ export function FeaturedProjects() {
                     {project.status}
                   </span>
                   <div>
-                    <h3 className="font-display text-[clamp(26px,2.2vw,34px)] font-normal tracking-[-.04em]">
+                    <h3 className="font-display text-[clamp(26px,2.2vw,34px)] font-normal tracking-[-.04em] leading-card">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-xs text-[#6f6972]">
+                    <p className="mt-2 text-xs text-[#6f6972] leading-caption">
                       {project.pillars.join(" · ")}
                     </p>
                   </div>
@@ -70,7 +70,7 @@ export function FeaturedProjects() {
             ))}
           </div>
         </div>
-        <div className="mt-8 flex justify-end">
+        <div className="mt-8 flex justify-end max-md:justify-center">
           <AnimatedButton
             href="/projects"
             label="View All Projects"

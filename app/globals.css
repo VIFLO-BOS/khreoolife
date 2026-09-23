@@ -13,15 +13,15 @@
   --cream: #f5f0e7;
   --nav-height: 76px;
 
-  /* Formal font stacks */
-  --ui-font: var(--font-ui-loaded),
+  /* Gotham leads the UI; fallbacks remain valid before its variable is set. */
+  --ui-font: var(--font-gotham, Arial),
     Arial,
     Helvetica,
     sans-serif;
-  --display-font: var(--font-display-loaded),
-    Georgia,
-    "Times New Roman",
-    serif;
+  /* The previous undefined display variable resolved to the browser's serif.
+     Keep that appearance rather than introducing a different display face. */
+  --display-font: serif;
+  --logo-font: serif;
 
 }
 
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--display-font);
 }
 
-/* Formal sans-serif: Body copy, paragraphs, lists */
+/* Gotham: body copy, paragraphs, lists */
 p, li, td, th, dd, dt, blockquote, figcaption {
   font-family: var(--ui-font);
 }
@@ -66,6 +66,15 @@ textarea {
   font: inherit;
 }
 
+input,
+select {
+  @apply leading-control;
+}
+
+textarea {
+  @apply leading-body;
+}
+
 ::selection {
   background: var(--yellow);
   color: var(--ink);
@@ -77,7 +86,7 @@ textarea {
   }
 
   .eyebrow {
-    @apply flex items-center gap-2.5 text-[10px] font-black uppercase tracking-[0.14em];
+    @apply flex items-center gap-2.5 font-sans text-[10px] font-black uppercase leading-caption tracking-[0.14em];
   }
 
   .eyebrow::before {
@@ -86,7 +95,7 @@ textarea {
   }
 
   .display-title {
-    @apply font-display font-normal leading-[0.96] tracking-[-0.055em];
+    @apply font-display font-normal leading-section tracking-[-0.055em];
   }
 
   .section-pad {
@@ -98,11 +107,11 @@ textarea {
   }
 
   .pill-tag {
-    @apply inline-flex items-center rounded-full border border-current px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.09em];
+    @apply inline-flex items-center rounded-full border border-current px-3 py-1.5 font-sans text-[9px] font-black uppercase leading-caption tracking-[0.09em];
   }
 
   .status-pill {
-    @apply inline-flex rounded-full bg-[#ece8e4] px-2.5 py-1.5 text-[9px] font-black uppercase tracking-[0.08em] text-ink;
+    @apply inline-flex rounded-full bg-[#ece8e4] px-2.5 py-1.5 font-sans text-[9px] font-black uppercase leading-caption tracking-[0.08em] text-ink;
   }
 
   .status-pill-future {
@@ -110,7 +119,7 @@ textarea {
   }
 
   .sticker {
-    @apply inline-flex -rotate-3 rounded bg-yellow px-2.5 py-1 text-xs font-black text-ink;
+    @apply inline-flex -rotate-3 rounded bg-yellow px-2.5 py-1 font-sans text-xs font-black leading-caption text-ink;
   }
 
   .card-border {
@@ -119,6 +128,7 @@ textarea {
 }
 
 .logo-smile {
+  font-family: var(--logo-font, serif);
   position: relative;
   width: 31px;
   height: 31px;
@@ -148,32 +158,34 @@ textarea {
   border-radius: 0 0 20px 20px;
 }
 
-.flip-card {
-  perspective: 1200px;
-}
+@layer components {
+  .flip-card {
+    perspective: 1200px;
+  }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 700ms cubic-bezier(.2, .75, .2, 1);
-}
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 700ms cubic-bezier(.2, .75, .2, 1);
+  }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
-  transform: rotateY(180deg);
-}
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+  }
 
-.flip-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 
-.flip-back {
-  transform: rotateY(180deg);
+  .flip-back {
+    transform: rotateY(180deg);
+  }
 }
 
 .hero-scene {
@@ -242,7 +254,7 @@ textarea {
   display: none;
 }
 
-@media (max-width: 760px) {
+@media not all and (min-width: 768px) {
   :root {
     --nav-height: 68px;
   }
@@ -261,5 +273,15 @@ textarea {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
+  }
+
+  .hero-scene {
+    animation: none;
+    opacity: 0;
+    transform: none;
+  }
+
+  .hero-scene:first-child {
+    opacity: 1;
   }
 }

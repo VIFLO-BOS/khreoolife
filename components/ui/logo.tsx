@@ -5,7 +5,7 @@ interface BrandMarkProps {
 export function BrandMark({ className = "" }: BrandMarkProps) {
   return (
     <span
-      className={`relative inline-block size-[31px] shrink-0 bg- rounded-full  ${className}`.trim()}
+      className={`relative inline-block size-[31px] shrink-0 rounded-full font-logo ${className}`.trim()}
       aria-hidden="true"
     >
       <span className="absolute -top-1.5 left-px text-[21px] leading-normal font-black tracking-[-3px]">
@@ -23,7 +23,7 @@ interface BrandLogoProps {
 export function BrandLogo({ className = "" }: BrandLogoProps) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 text-[27px] leading-none font-[500] tablet:text-[21px] ${className}`.trim()}
+      className={`inline-flex items-center gap-2.5 font-logo text-[27px] leading-none font-[500] max-lg:text-[21px] ${className}`.trim()}
     >
       <BrandMark />
       <span>Khreeolife</span>

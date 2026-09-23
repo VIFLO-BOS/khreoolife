@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function FooterLogo() {
   return (
-    <span className="inline-flex items-center gap-3 text-white">
+    <span className="inline-flex items-center gap-3 font-logo text-white">
       <span className="relative block size-10 shrink-0">
         <span className="absolute left-[3px] top-0 text-[23px] font-black leading-none tracking-[-3px]">
           ee
@@ -25,14 +25,14 @@ export function SiteFooter() {
             <Link href="/">
               <FooterLogo />
             </Link>
-            <p className="mt-5 max-w-[350px] text-sm leading-6 text-white/60">
+            <p className="mt-5 max-w-[350px] text-sm text-white/60 leading-body">
               The Ordained Life transforming people and communities through
               the love of God in words and deeds.
             </p>
             <span className="sticker mt-3">the ordained life</span>
           </div>
           <div>
-            <h3 className="mb-4 text-[9px] font-black uppercase tracking-[.13em] text-white/45">
+            <h3 className="mb-4 font-sans text-[9px] font-black uppercase tracking-[.13em] text-white/45 leading-caption">
               Quick Links
             </h3>
             {[
@@ -43,7 +43,7 @@ export function SiteFooter() {
               ["About", "/about"],
             ].map(([label, href]) => (
               <Link
-                className="my-2 block text-[13px] text-white/75 hover:text-yellow"
+                className="my-2 block text-[13px] text-white/75 hover:text-yellow leading-caption"
                 key={href}
                 href={href}
               >
@@ -52,49 +52,49 @@ export function SiteFooter() {
             ))}
           </div>
           <div>
-            <h3 className="mb-4 text-[9px] font-black uppercase tracking-[.13em] text-white/45">
+            <h3 className="mb-4 font-sans text-[9px] font-black uppercase tracking-[.13em] text-white/45 leading-caption">
               Get Involved
             </h3>
             <Link
               href="/get-involved"
-              className="my-2 block text-[13px] text-white/75 hover:text-yellow"
+              className="my-2 block text-[13px] text-white/75 hover:text-yellow leading-caption"
             >
               Volunteer
             </Link>
             <Link
               href="/get-involved"
-              className="my-2 block text-[13px] text-white/75 hover:text-yellow"
+              className="my-2 block text-[13px] text-white/75 hover:text-yellow leading-caption"
             >
               Sponsor
             </Link>
             <Link
               href="/donate"
-              className="my-2 block text-[13px] text-white/75 hover:text-yellow"
+              className="my-2 block text-[13px] text-white/75 hover:text-yellow leading-caption"
             >
               Donate Now
             </Link>
           </div>
           <div>
-            <h3 className="mb-4 text-[9px] font-black uppercase tracking-[.13em] text-white/45">
+            <h3 className="mb-4 font-sans text-[9px] font-black uppercase tracking-[.13em] text-white/45 leading-caption">
               Connect
             </h3>
             <a
               href="https://instagram.com/theordainedlife"
               target="_blank"
               rel="noreferrer"
-              className="my-2 block text-[13px] text-white/75 hover:text-yellow"
+              className="my-2 block text-[13px] text-white/75 hover:text-yellow leading-caption"
             >
               @theordainedlife
             </a>
-            <span className="my-2 block text-[13px] text-white/50">
+            <span className="my-2 block text-[13px] text-white/50 leading-caption">
               Contact Email
             </span>
-            <span className="my-2 block text-[13px] text-white/50">
+            <span className="my-2 block text-[13px] text-white/50 leading-caption">
               Contact Phone
             </span>
           </div>
         </div>
-        <div className="mt-12 flex justify-between gap-5 border-t border-white/15 pt-5 text-[10px] text-white/40 max-md:flex-col">
+        <div className="mt-12 flex justify-between gap-5 border-t border-white/15 pt-5 text-[10px] text-white/40 max-md:flex-col leading-caption">
           <span>
             © 2026 Khreeolife — The Ordained Life. All Rights Reserved.
           </span>

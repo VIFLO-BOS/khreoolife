@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { gotham } from "./fonts";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -16,7 +17,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={gotham.variable}>
       <body
         className="bg-paper text-ink antialiased"
       >

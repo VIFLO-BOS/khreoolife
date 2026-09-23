@@ -199,13 +199,13 @@ export function SiteHeader() {
         )}
         onMouseLeave={() => setActiveMega(null)}
       >
-        <div className="site-container flex h-[76px] items-center gap-7 max-md:h-[68px]">
+        <div className="site-container flex h-[var(--nav-height)] items-center gap-7">
           <Link href="/" className="mr-auto" aria-label="Khreeolife home">
             <BrandLogo/>
           </Link>
 
           <nav
-            className="hidden items-center gap-6 text-[11px] font-bold lg:flex"
+            className="hidden items-center gap-6 text-[11px] font-bold lg:flex leading-caption"
             aria-label="Primary navigation"
           >
             <Link href="/" className="transition-opacity hover:opacity-60">
@@ -223,7 +223,7 @@ export function SiteHeader() {
                       value === group.label ? null : group.label,
                     )
                   }
-                  className="flex items-center gap-1.5 py-7 transition-opacity hover:opacity-60"
+                  className="flex items-center gap-1.5 py-7 transition-opacity hover:opacity-60 leading-control"
                 >
                   {group.label}
                   <span
@@ -252,7 +252,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="grid size-11 place-items-center rounded-full border border-current lg:hidden"
+            className="grid size-11 place-items-center rounded-full border border-current lg:hidden leading-control"
             onClick={() => setMobileOpen((value) => !value)}
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
           >
@@ -266,7 +266,7 @@ export function SiteHeader() {
 
         <div
           className={cn(
-            "absolute left-0 right-0 top-[76px] overflow-hidden rounded-b-[22px] bg-cream text-ink shadow-soft transition-all duration-300 max-lg:hidden",
+            "absolute left-0 right-0 top-[var(--nav-height)] overflow-hidden rounded-b-[22px] bg-cream text-ink shadow-soft transition-all duration-300 max-lg:hidden",
             activeGroup
               ? "visible translate-y-0 opacity-100"
               : "invisible -translate-y-4 opacity-0",
@@ -281,7 +281,7 @@ export function SiteHeader() {
                 </strong>
                 <Link
                   href={activeGroup.href}
-                  className="border-b border-ink text-[11px] font-black"
+                  className="border-b border-ink text-[11px] font-black leading-caption"
                 >
                   View all ↗
                 </Link>
@@ -299,10 +299,10 @@ export function SiteHeader() {
                         <Icon className="size-8" strokeWidth={1.35} />
                       </span>
                       <span>
-                        <strong className="mb-1 block font-display text-[19px] font-normal leading-tight">
+                        <strong className="mb-1 block font-display text-[19px] font-normal leading-card">
                           {item.title}
                         </strong>
-                        <span className="block text-[11px] leading-5 text-[#615a60]">
+                        <span className="block text-[11px] text-[#615a60] leading-caption">
                           {item.description}
                         </span>
                       </span>
@@ -332,7 +332,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-center justify-between border-b border-ink py-3 font-display text-[clamp(34px,9vw,56px)] tracking-[-.05em]"
+              className="flex items-center justify-between border-b border-ink py-3 font-display text-[clamp(34px,9vw,56px)] tracking-[-.05em] leading-card"
             >
               {item.label}
               <span>↗</span>

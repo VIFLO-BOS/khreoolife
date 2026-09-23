@@ -25,10 +25,22 @@ const config: Config = {
         red: "#F9001E",
       },
       fontFamily: {
-        sans: ["var(--font-ui-loaded)", "Arial", "Helvetica", "sans-serif"],
-        display: ["var(--font-display-loaded)", "Georgia", "Times New Roman", "serif"],
-        heading: ["var(--font-display-loaded)", "Georgia", "Times New Roman", "serif"],
-        body: ["var(--font-ui-loaded)", "Arial", "Helvetica", "sans-serif"],
+        sans: ["var(--ui-font, Arial)"],
+        display: ["var(--display-font, serif)"],
+        heading: ["var(--display-font, serif)"],
+        body: ["var(--ui-font, Arial)"],
+        logo: ["var(--logo-font, serif)"],
+      },
+      // Unitless, role-based rhythm: fluid type keeps proportional line boxes.
+      lineHeight: {
+        hero: "1.04",
+        section: "1.1",
+        card: "1.2",
+        lead: "1.6",
+        body: "1.7",
+        reading: "1.75",
+        caption: "1.5",
+        control: "1.4",
       },
       maxWidth: {
         site: "1320px",

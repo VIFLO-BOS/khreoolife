@@ -22,7 +22,7 @@ export function AnimatedButton({ href, label, variant = "brand", className }: Pr
     <Link href={href} className={cn("group inline-flex items-center gap-1.5", className)}>
       <span
         className={cn(
-          "inline-flex min-h-11 items-center justify-center rounded-full px-6 text-[11px] font-black transition-colors duration-300",
+          "inline-flex min-h-11 items-center justify-center rounded-full px-6 text-[11px] font-black leading-control transition-colors duration-300",
           styles[variant],
         )}
       >

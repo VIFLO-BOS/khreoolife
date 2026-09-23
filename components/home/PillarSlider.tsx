@@ -25,20 +25,20 @@ export function PillarSlider() {
   return (
     <section
       id="pillars"
-      className="bg-paper py-16 pb-28 max-md:py-11 max-md:pb-20"
+      className="scroll-mt-[var(--nav-height)] bg-paper py-16 pb-28 max-md:py-11 max-md:pb-20"
     >
       <div className="site-container">
 
         <Reveal>
-          <div className="flex items-end justify-start">
-            <h3 className="font-display text-[clamp(42px,5vw,76px)] font-normal tracking-[-.04em]">
+          <div className="flex items-end justify-start max-md:justify-center max-md:text-center">
+            <h3 className="font-display text-[clamp(42px,5vw,76px)] font-normal tracking-[-.04em] max-md:text-balance max-md:text-[clamp(34px,9vw,42px)] leading-section">
               Three Pillar Overviews
             </h3>
           </div>
         </Reveal>
-        <div className="grid min-h-[660px] grid-cols-[50%_50%] items-center max-lg:grid-cols-1">
-          <div className="flex flex-col py-1 pr-12 max-lg:pr-0">
-            <div className="eyebrow text-brand">What we do</div>
+        <div className="grid min-h-[660px] grid-cols-[50%_50%] items-center max-lg:min-h-0 max-lg:grid-cols-1">
+          <div className="flex min-w-0 flex-col py-1 pr-12 max-lg:pr-0 max-md:mt-8 max-md:items-center max-md:text-center">
+            <div className="eyebrow text-brand max-md:justify-center">What we do</div>
             <AnimatePresence mode="wait">
               <motion.div
                 key={pillar.id}
@@ -46,12 +46,12 @@ export function PillarSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.4 }}
-                className="mt-2 max-w-[720px]"
+                className="mt-2 max-w-[720px] max-md:min-h-[17rem]"
               >
-                <h4 className="display-title mt-4 text-[clamp(34px,4vw,55px)] leading-[4rem]">
+                <h4 className="display-title mt-4 text-[clamp(34px,4vw,55px)] max-md:text-balance max-md:text-[clamp(30px,8vw,36px)] leading-card">
                   {pillar.heading}
                 </h4>
-                <p className="mt-4 max-w-[640px] text-[14px] leading-6 text-[#625b63]">
+                <p className="mt-4 max-w-[640px] text-[14px] text-[#625b63] max-md:mx-auto leading-body">
                   {pillar.description}
                 </p>
               </motion.div>
@@ -65,15 +65,17 @@ export function PillarSlider() {
               />
             </div>
 
-            <div className="mt-9 flex w-[220px] gap-2 max-md:w-[180px]">
+            <div className="mt-9 flex w-[220px] gap-2 max-md:mt-4 max-md:w-[180px]">
               {pillars.map((item, index) => (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => setActive(index)}
-                  className="h-[4px] flex-1 overflow-hidden bg-[#c8c0b7]"
+                  className="flex h-11 flex-1 items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand leading-control"
                   aria-label={item.name}
+                  aria-pressed={index === active}
                 >
+                  <span className="block h-1 w-full overflow-hidden bg-[#c8c0b7]">
                   {index === active ? (
                     <motion.span
                       key={`${active}-${item.id}`}
@@ -83,6 +85,7 @@ export function PillarSlider() {
                       transition={{ duration: DURATION, ease: "linear" }}
                     />
                   ) : null}
+                  </span>
                 </button>
               ))}
             </div>
@@ -114,9 +117,9 @@ export function PillarSlider() {
             </div> */}
           </div>
 
-          <div className="overflow-hidden py-10 pl-14 max-lg:pl-0">
+          <div className="min-w-0 overflow-hidden py-10 pl-14 max-lg:pl-0 max-md:py-6">
           
-            <div className="relative mt-10 grid h-[460px] w-full grid-cols-3 grid-rows-2 gap-3 max-lg:h-[400px] max-md:h-[320px]">
+            <div className="relative mt-10 grid h-[460px] w-full grid-cols-3 grid-rows-2 gap-3 max-lg:h-[400px] max-md:mt-0 max-md:h-[320px]">
               {[0, 1, 2, 3].map((index) => {
                 let spanClasses = "";
                 let initialPos = {};
@@ -164,7 +167,7 @@ export function PillarSlider() {
                           className="object-cover saturate-[.92]"
                           sizes="(max-width: 768px) 45vw, 25vw"
                         />
-                        <div className="absolute bottom-3 left-3 rounded bg-white/80 px-3 py-1.5 text-[10px] font-medium tracking-[.08em] text-[#6f6972] backdrop-blur-md transition-all duration-300 group-hover:bg-brand group-hover:text-white max-md:bottom-2 max-md:left-2 max-md:text-[8px]">
+                        <div className="absolute bottom-3 left-3 rounded bg-white/80 px-3 py-1.5 text-[10px] font-medium tracking-[.08em] text-[#6f6972] backdrop-blur-md transition-all duration-300 group-hover:bg-brand group-hover:text-white max-md:bottom-2 max-md:left-2 max-md:right-2 max-md:break-words max-md:px-1.5 max-md:text-center leading-caption">
                           {pillar.labels[index]}
                         </div>
                       </motion.div>

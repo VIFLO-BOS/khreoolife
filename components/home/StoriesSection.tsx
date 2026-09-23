@@ -53,7 +53,7 @@ export function StoriesSection() {
             <Reveal
               key={story.title}
               delay={index * 0.06}
-              className={`${story.size} max-md:col-span-1 max-md:row-span-1 max-md:min-h-[420px]`}
+              className={`${story.size} max-lg:col-span-6 max-lg:row-span-1 max-lg:min-h-[380px] max-md:col-span-1 max-md:min-h-[360px]`}
             >
               <article className="card-border group relative h-full min-h-[inherit]">
                 <Image
@@ -64,9 +64,9 @@ export function StoriesSection() {
                   sizes="(max-width:768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-paper/95 p-2 backdrop-blur-md">
+                <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-paper/95 p-2 backdrop-blur-md max-md:text-center">
                   <span className="pill-tag text-brand">{story.tag}</span>
-                  <h3 className="mt-3 font-display text-[clamp(20px,2.8vw,20px)] font-normal tracking-[-.04em]">
+                  <h3 className="mt-3 font-display text-[20px] font-normal tracking-[-.04em] leading-card">
                     {story.title}
                   </h3>
                 </div>
@@ -74,7 +74,7 @@ export function StoriesSection() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-8 flex justify-end">
+        <div className="mt-8 flex justify-end max-md:justify-center">
           <AnimatedButton href="/blog" label="Open Magazine" variant="dark" />
         </div>
       </div>

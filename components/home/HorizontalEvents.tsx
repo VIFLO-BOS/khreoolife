@@ -79,7 +79,7 @@ export function HorizontalEvents() {
     const maxScroll = Math.max(1, section.offsetHeight - window.innerHeight);
     window.scrollTo({
       top: sectionTop + targetProgress * maxScroll,
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
     });
   };
 
@@ -89,34 +89,36 @@ export function HorizontalEvents() {
       className="relative bg-cream"
       style={{ height: sectionHeight }}
     >
-      <div className="sticky top-[76px] flex min-h-[calc(100svh-76px)] flex-col justify-center overflow-hidden py-14 max-md:top-[68px] max-md:min-h-[calc(100svh-68px)] max-md:py-9">
+      <div className="sticky top-[var(--nav-height)] flex min-h-[calc(100svh-var(--nav-height))] flex-col justify-center overflow-hidden py-14 max-md:py-9">
         <div className="site-container">
-          <div className="grid grid-cols-[1.05fr_.65fr] items-end gap-20 max-lg:grid-cols-1 max-lg:gap-6">
-            <Reveal>
-              <div className="eyebrow mb-4 text-brand">Latest Events</div>
-              <h2 className="display-title text-[clamp(42px,5vw,76px)]">
+          <div className="grid grid-cols-[1.05fr_.65fr] items-end gap-20 max-lg:grid-cols-1 max-lg:gap-6 max-md:text-center">
+            <Reveal className="min-w-0">
+              <div className="eyebrow mb-4 text-brand max-md:justify-center">Latest Events</div>
+              <h2 className="display-title text-[clamp(42px,5vw,76px)] max-md:text-balance max-md:text-[clamp(34px,9vw,42px)] leading-section">
                 Past, present
                 <br />
                 and what comes next.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="max-w-[430px] text-[15px] leading-7 text-[#6f6972]">
+              <p className="max-w-[430px] text-[15px] text-[#6f6972] max-md:mx-auto leading-body">
                 Every event belongs to a larger project story. Keep scrolling —
                 the cards travel sideways until the final event is fully
                 revealed.
               </p>
-              <div className="mt-5 flex gap-2">
+              <div className="mt-5 flex gap-2 max-md:justify-center">
                 <button
+                  type="button"
                   onClick={() => scrollToCard(active - 1)}
-                  className="grid size-11 place-items-center rounded-full border border-ink transition-colors hover:bg-brand hover:text-white"
+                  className="grid size-11 place-items-center rounded-full border border-ink transition-colors hover:bg-brand hover:text-white leading-control"
                   aria-label="Previous event"
                 >
                   <ArrowLeft className="size-4" />
                 </button>
                 <button
+                  type="button"
                   onClick={() => scrollToCard(active + 1)}
-                  className="grid size-11 place-items-center rounded-full border border-ink transition-colors hover:bg-brand hover:text-white"
+                  className="grid size-11 place-items-center rounded-full border border-ink transition-colors hover:bg-brand hover:text-white leading-control"
                   aria-label="Next event"
                 >
                   <ArrowRight className="size-4" />
@@ -140,7 +142,7 @@ export function HorizontalEvents() {
                     opacity: index === active ? 1 : 0.68,
                   }}
                   transition={{ duration: 0.35 }}
-                  className="card-border w-[clamp(320px,29vw,390px)] shrink-0 bg-white"
+                  className="card-border w-[min(clamp(320px,29vw,390px),calc(100vw-28px))] shrink-0 bg-white"
                 >
                   <div className="relative h-[255px] overflow-hidden border-b border-ink">
                     <Image
@@ -157,14 +159,14 @@ export function HorizontalEvents() {
                     </span>
                   </div>
                   <div className="flex min-h-[225px] flex-col p-6">
-                    <div className="flex justify-between gap-4 text-[9px] font-bold uppercase tracking-[.08em] text-[#6f6972]">
+                    <div className="flex flex-wrap justify-between gap-4 text-[9px] font-bold uppercase tracking-[.08em] text-[#6f6972] leading-caption">
                       <span>{event.project}</span>
                       <span>{event.location ?? event.date}</span>
                     </div>
-                    <h3 className="mt-7 font-display text-[30px] font-normal tracking-[-.04em]">
+                    <h3 className="mt-7 font-display text-[30px] font-normal tracking-[-.04em] leading-card">
                       {event.title}
                     </h3>
-                    <div className="mt-auto flex justify-between border-t border-[#d7d0c7] pt-4 text-[11px] font-black">
+                    <div className="mt-auto flex justify-between border-t border-[#d7d0c7] pt-4 text-[11px] font-black leading-caption">
                       <span>{event.date}</span>
                       <span>↗</span>
                     </div>
@@ -181,7 +183,7 @@ export function HorizontalEvents() {
             />
           </div>
           <div className="mt-5 flex items-center justify-between gap-5">
-            <span className="text-[10px] font-black tracking-[.1em]">
+            <span className="text-[10px] font-black tracking-[.1em] leading-caption">
               0{active + 1} / 0{events.length}
             </span>
             <AnimatedButton

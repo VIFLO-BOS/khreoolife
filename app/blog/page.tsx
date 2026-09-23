@@ -13,14 +13,14 @@ export default function BlogPage() {
         <div className="site-container grid grid-cols-[1.2fr_.55fr] items-end gap-24 pb-16 max-lg:grid-cols-1 max-lg:gap-8">
           <Reveal>
             <div className="eyebrow mb-5 text-brand">Blog / Magazine</div>
-            <h1 className="display-title text-[clamp(54px,6.4vw,98px)]">
+            <h1 className="display-title text-[clamp(54px,6.4vw,98px)] leading-hero">
               Stories from the work.
               <br />
               Reflections from the life.
             </h1>
           </Reveal>
           <Reveal delay={0.1} className="border-t border-ink pt-5">
-            <p className="text-[17px] leading-7 text-[#6f6972]">
+            <p className="text-[17px] text-[#6f6972] leading-body">
               A magazine-style content hub for Khreeolife updates, stories from
               the field and community news.
             </p>
@@ -71,16 +71,16 @@ export default function BlogPage() {
                 </span>
                 <span className="font-display text-3xl">01</span>
               </div>
-              <h2 className="display-title mt-12 text-[clamp(48px,5vw,75px)]">
+              <h2 className="display-title mt-12 text-[clamp(48px,5vw,75px)] leading-section">
                 The Ordained Life
               </h2>
-              <p className="mt-5 text-[17px] leading-7 text-[#6f6972]">
+              <p className="mt-5 text-[17px] text-[#6f6972] leading-body">
                 Khreeolife is a gospel-centered organization dedicated to
                 reflecting Jesus Christ&apos;s love through words and actions.
                 This editorial space is designed to carry that story in
                 long-form.
               </p>
-              <div className="mt-7 flex justify-between gap-4 border-t border-[#d7d0c7] pt-4 text-[10px] uppercase tracking-[.07em] text-[#6f6972]">
+              <div className="mt-7 flex justify-between gap-4 border-t border-[#d7d0c7] pt-4 text-[10px] uppercase tracking-[.07em] text-[#6f6972] leading-caption">
                 <span>Khreeolife Editorial</span>
                 <span>Content grows progressively</span>
               </div>
@@ -97,7 +97,7 @@ export default function BlogPage() {
 
       <section className="bg-brand py-24 text-center text-white">
         <Reveal className="site-container">
-          <div className="display-title mx-auto max-w-[1100px] text-[clamp(43px,6vw,86px)]">
+          <div className="display-title mx-auto max-w-[1100px] text-[clamp(43px,6vw,86px)] leading-section">
             “Reflecting Jesus Christ&apos;s love through words and actions.”
           </div>
         </Reveal>
