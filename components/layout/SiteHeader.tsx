@@ -19,6 +19,7 @@ import {
   UsersRound,
   X,
   Menu,
+  ArrowUpRight,
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -32,6 +33,7 @@ type MegaItem = {
   href: string;
   icon: LucideIcon;
 };
+
 type MegaGroup = { label: string; href: string; items: MegaItem[] };
 
 const megaGroups: MegaGroup[] = [
@@ -163,7 +165,6 @@ const directLinks = [
   { label: "About", href: "/about" },
 ];
 
-
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -201,7 +202,7 @@ export function SiteHeader() {
       >
         <div className="site-container flex h-[var(--nav-height)] items-center gap-7">
           <Link href="/" className="mr-auto" aria-label="Khreeolife home">
-            <BrandLogo/>
+            <BrandLogo />
           </Link>
 
           <nav
@@ -335,7 +336,7 @@ export function SiteHeader() {
               className="flex items-center justify-between border-b border-ink py-3 font-display text-[clamp(34px,9vw,56px)] tracking-[-.05em] leading-card"
             >
               {item.label}
-              <span>↗</span>
+              <ArrowUpRight />
             </Link>
           ))}
           <div className="mt-7">
